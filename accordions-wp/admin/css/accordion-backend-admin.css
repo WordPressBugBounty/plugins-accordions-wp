@@ -1,0 +1,112 @@
+.tp-accordions-pro-shortcodes {
+  background: #32a5dc none repeat scroll 0 0;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+.tp-accordions-pro-shortcodes > h2 {
+  color: #fff;
+  display: block;
+  font-size: 19px !important;
+  overflow: hidden;
+}
+.tp-accordions-pro-shortcodes > textarea {
+  padding: 5px;
+  text-align: center;
+}
+.tp-accordions-pro-shortcodes > p {
+  color: #fff;
+  font-size: 15px;
+}
+.tp_accordions_pro_hint .only_pro_v {
+  color: red;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Tabs CSS  */
+
+.tabs-menu {
+  display: block;
+  overflow: hidden;
+}
+.tabs-menu li {
+  padding: 10px;
+  float: left;
+  margin-right: 10px;
+  background-color: #ccc;
+  border-top: 1px solid #d4d4d1;
+  border-right: 1px solid #d4d4d1;
+  border-left: 1px solid #d4d4d1;
+}
+.tabs-menu li.current {
+  position: relative;
+  background-color: #32a5dc;
+  z-index: 5;
+}
+.tabs-menu li a {
+  padding: 10px;
+  text-transform: capitalize;
+  color: #000;
+  text-decoration: none; 
+}
+.tabs-menu .current a {
+  color: #fff;
+}
+.tab {
+  background-color: #fff;
+}
+.tab-content {
+    display: none;
+}
+#tab-1 {
+ display: block;   
+}
+.tabs-menu li a:focus {
+  box-shadow: none;
+  outline: medium none;
+}
+.tabs-menu li a i {
+  margin-right: 7px;
+}
+
+/* Table Design */
+.tab-content table.form-table tr {
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  padding-left: 10px;
+  display: block;
+  overflow: hidden;
+}
+.tab-content table.form-table tr:hover {
+  background: #efefef none repeat scroll 0 0;
+  border-bottom: 1px solid #32a5dc;
+  transition: all 0.5s ease 0s;
+}
+.tp_accordions_pro_hint {
+  display: block;
+  font-size: 11px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+#custom_accordions_pro_details .wp-editor-container textarea.wp-editor-area {
+    color: unset !important;
+}
+.wrap h2.team-manager-admin-support {
+  padding-bottom: 15px;
+}
+.wrap .team-manager-admin-area {
+  padding: 25px;
+}
+.team-manager-admin-area p {
+  font-size: 16px;
+}
+.team-manager-admin-area h3{}
+.team-manager-admin-area ul {
+  font-size: 14px;
+  list-style: outside none disc;
+  margin: 0 0 0 2.5em;
+}
+.team-manager-admin-area ul li {
+  margin-bottom: 12px;
+}
