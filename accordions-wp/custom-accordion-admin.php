@@ -5,7 +5,9 @@
  ?>
 
 <div class="wrap">
-	<h2 class="team-manager-admin-support"><?php echo esc_html__( 'Support', 'tcaccordion' ); ?></h2>
+	<h2 class="team-manager-admin-support">
+		<?php echo esc_html__( 'Support', 'tcaccordion' ); ?>
+	</h2>
 	<div class="postbox team-manager-admin-area">
 		<h3 class="eddpcs-admin-hthree"><?php echo esc_html__( 'Support Forum', 'tcaccordion' ); ?></h3>
         <p>If you need any helps, please don't hesitate to post it on <a href="https://wordpress.org/support/plugin/accordions-wp" target="_blank">WordPress.org Support Forum</a> or <a href="https://themepoints.com/questions-answer/" target="_blank">Themepoints.com Support Forum</a>.</p><br />

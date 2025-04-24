@@ -1,13 +1,13 @@
 <?php
 	/*
-		Plugin Name: Accordion-Wp
-		Plugin URI: https://themepoints.com/product/wp-accordions-pro
-		Description: Wp Accordions is a component ready to use on mobile devices and desktop devices. It’s a fluid component and easy to use. It provides various skins, options and features for data organization and it comes with many different styles.
-		Version: 2.8
-		Author: Themepoints
-		Author URI: https://themepoints.com
-		TextDomain: tcaccordion
-		License: GPLv2
+	Plugin Name: Accordion-Wp
+	Plugin URI: https://themepoints.com/product/wp-accordions-pro
+	Description: Wp Accordions is a component ready to use on mobile devices and desktop devices. It’s a fluid component and easy to use. It provides various skins, options and features for data organization and it comes with many different styles.
+	Version: 2.9
+	Author: Themepoints
+	Author URI: https://themepoints.com
+	TextDomain: tcaccordion
+	License: GPLv2
 	*/
 
 
@@ -150,5 +150,3 @@
 			return $content;
 	}// shortcode hook
 	add_shortcode('tcpaccordion', 'custom_accordion_shortcode_register');
-
-?>

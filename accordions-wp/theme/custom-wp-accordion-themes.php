@@ -56,7 +56,6 @@
 			$logotesting ='';
 				$logotesting.='<div class="container '.esc_attr( $custom_accordion_columns_post_themes ).'" style="width:100%; height:auto">';
 				$logotesting.='<ul class="responsive-accordion responsive-accordion-default bm-larger">';
-
 				foreach ($tcpfeaturess as $tcpfeature) {
 					$logotesting.='<li>';
 					$logotesting.='<div class="responsive-accordion-head" style="background-color:'.esc_attr( $custom_accordion_title_bg_color ).'">';
@@ -76,7 +75,6 @@
 			$logotesting ='';
 				$logotesting.='<div class="container '.esc_attr( $custom_accordion_columns_post_themes ).'" style="width:100%; height:auto">';
 				$logotesting.='<ul class="responsive-accordion responsive-accordion-default bm-larger">';
-
 				foreach ($tcpfeaturess as $tcpfeature) {
 					$logotesting.='<li>';
 					$logotesting.='<div class="responsive-accordion-head" style="background-color:'.esc_attr( $custom_accordion_title_bg_color ).'">';
@@ -115,5 +113,4 @@
 			echo 'Nothing Found!!';
 		}
 	}
-
 ?>
