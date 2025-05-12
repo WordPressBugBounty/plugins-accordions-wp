@@ -57,11 +57,9 @@
 	}
 	add_action( 'init', 'custom_accordion_post_register', 0 );
 
-
 	/*==========================================================================
 		Adds a box to the main column on the Post and Page edit screens
 	==========================================================================*/
-
 	function custom_accordion_wordpress_add_custom_box() {
 		$screens = array( 'accordion_tp' );
 		foreach ( $screens as $screen ){
@@ -82,19 +80,18 @@
 		<?php
 
 		//get the saved meta as an arry
-		
-		$custom_accordion_columns_post_themes 			= get_post_meta( $post->ID, 'custom_accordion_columns_post_themes', true );
-		$custom_accordion_title_bg_color 				= get_post_meta( $post->ID, 'custom_accordion_title_bg_color', true );
-		$custom_accordion_title_font_color 				= get_post_meta( $post->ID, 'custom_accordion_title_font_color', true );
-		$custom_accordion_title_font_size 				= get_post_meta( $post->ID, 'custom_accordion_title_font_size', true );
-		$custom_accordion_content_bg_color 				= get_post_meta( $post->ID, 'custom_accordion_content_bg_color', true );
-		$custom_accordion_content_font_color 			= get_post_meta( $post->ID, 'custom_accordion_content_font_color', true );
-		$custom_accordion_content_font_size 			= get_post_meta( $post->ID, 'custom_accordion_content_font_size', true );
-		$custom_accordion_content_padding 				= get_post_meta( $post->ID, 'custom_accordion_content_padding', true );		
-		$_tpaccpro_wiki_acc_themes_title_position 		= get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_title_position', true );
-		$_tpaccpro_wiki_acc_themes_show_hide_icons 		= get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_show_hide_icons', true );
-		$_tpaccpro_wiki_acc_themes_icon_position 		= get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_icon_position', true );
-		$_tpaccpro_wiki_acc_theme_content_margin 		= get_post_meta( $post->ID, '_tpaccpro_wiki_acc_theme_content_margin', true );		
+		$custom_accordion_columns_post_themes      = get_post_meta( $post->ID, 'custom_accordion_columns_post_themes', true );
+		$custom_accordion_title_bg_color           = get_post_meta( $post->ID, 'custom_accordion_title_bg_color', true );
+		$custom_accordion_title_font_color         = get_post_meta( $post->ID, 'custom_accordion_title_font_color', true );
+		$custom_accordion_title_font_size          = get_post_meta( $post->ID, 'custom_accordion_title_font_size', true );
+		$custom_accordion_content_bg_color         = get_post_meta( $post->ID, 'custom_accordion_content_bg_color', true );
+		$custom_accordion_content_font_color       = get_post_meta( $post->ID, 'custom_accordion_content_font_color', true );
+		$custom_accordion_content_font_size        = get_post_meta( $post->ID, 'custom_accordion_content_font_size', true );
+		$custom_accordion_content_padding          = get_post_meta( $post->ID, 'custom_accordion_content_padding', true );		
+		$_tpaccpro_wiki_acc_themes_title_position  = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_title_position', true );
+		$_tpaccpro_wiki_acc_themes_show_hide_icons = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_show_hide_icons', true );
+		$_tpaccpro_wiki_acc_themes_icon_position   = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_icon_position', true );
+		$_tpaccpro_wiki_acc_theme_content_margin   = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_theme_content_margin', true );		
 		?>
 
 		<div id="tabs-container">
@@ -103,7 +100,7 @@
 			</ul>
 			<div class="tab">
 				<div id="tab-1" class="tab-content">
-					<div class="wrap">				
+					<div class="wrap">
 						<table class="form-table">
 
 							<tr valign="top">
