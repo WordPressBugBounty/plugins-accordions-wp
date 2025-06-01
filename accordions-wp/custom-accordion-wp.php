@@ -1,50 +1,62 @@
 <?php
-	/*
-		Plugin Name: Accordion-Wp
-		Plugin URI: https://themepoints.com/product/wp-accordions-pro
-		Description: Wp Accordions is a component ready to use on mobile devices and desktop devices. It’s a fluid component and easy to use. It provides various skins, options and features for data organization and it comes with many different styles.
-		Version: 3.0.0
-		Author: Themepoints
-		Author URI: https://themepoints.com
-		TextDomain: tcaccordion
-		License: GPLv2
+	/**
+	 * Plugin Name: Accordion-WP
+	 * Plugin URI:  https://themepoints.com/wp-accordions/
+	 * Description: Accordion-WP is a responsive accordion plugin for WordPress, offering multiple styles, skins, and customization options for displaying content in a compact and organized format.
+	 * Version:     3.0.1
+	 * Author:      Themepoints
+	 * Author URI:  https://themepoints.com
+	 * Text Domain: tcaccordion
+	 * License:     GPLv2 or later
 	*/
 
 	if ( ! defined( 'ABSPATH' ) ) {
-	    exit;
+		exit; // Exit if accessed directly
 	}
 
-	// Define constants
-	define('CUSTOM_ACCORDION_PLUGIN_PATH', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
+	/** 
+	 * Define plugin constants
+	 */
+	define( 'TCACCORDION_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+	define( 'TCACCORDION_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
-	// Include core files
-	include( plugin_dir_path( __FILE__ ) . 'metabox/custom-meta-boxes.php' );
-	include( plugin_dir_path( __FILE__ ) . 'inc/accordions-wp-post-type.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'theme/custom-wp-accordion-themes.php');
+	/**
+	 * Include required files
+	 */
+	require_once TCACCORDION_PLUGIN_PATH . 'metabox/custom-meta-boxes.php';
+	require_once TCACCORDION_PLUGIN_PATH . 'inc/accordions-wp-post-type.php';
+	require_once TCACCORDION_PLUGIN_PATH . 'theme/custom-wp-accordion-themes.php';
+
+	/**
+	 * Load translation for the plugin
+	 */
+	function custom_accordion_load_textdomain(){
+		load_plugin_textdomain('tcaccordion', false, dirname( plugin_basename( __FILE__ ) ) .'/languages/' );
+	}
+	add_action('plugins_loaded', 'custom_accordion_load_textdomain');
 
 	/**
 	 * Enqueue frontend scripts and styles
 	 */
 	function custom_accordion_active_script(){
+		wp_register_style( 'accordion-responsive-css', plugins_url( 'css/responsive-accordion.css' , __FILE__ ) );
+		wp_register_style( 'accordion-main-css', plugins_url( 'css/style.css' , __FILE__ ) );
 		wp_enqueue_script('jquery');
-		wp_register_script('accordion-responsive-js', plugins_url( '/js/responsive-accordion.min.js', __FILE__ ), array('jquery'), '1.0', false);
-		wp_register_style('accordion-responsive-css', CUSTOM_ACCORDION_PLUGIN_PATH.'css/responsive-accordion.css');
-		wp_register_style('accordion-main-css', CUSTOM_ACCORDION_PLUGIN_PATH.'css/style.css');
+		wp_register_script('accordion-responsive-js', plugins_url( 'js/responsive-accordion.min.js', __FILE__ ), array('jquery'), '1.0', false);
 		wp_enqueue_style('wp-color-picker');
 		wp_enqueue_script('accordion-wp-color-picker', plugins_url(), array( 'wp-color-picker' ), false, true );
 	}
-	add_action('init', 'custom_accordion_active_script');
+	add_action('wp_enqueue_scripts', 'custom_accordion_active_script');
 	
 	/**
-	 * Enqueue admin scripts and styles
+	 * Enqueue admin scripts and styles for custom post type
 	 */
 	function custom_accordion_admin_enqueue_scripts(){
 		global $typenow;
 		if(($typenow == 'accordion_tp')){
+			wp_enqueue_style( 'accordion-admin-css', plugins_url( 'admin/css/accordion-backend-admin.css' , __FILE__ ) );
 			wp_enqueue_script('jquery');
-			wp_enqueue_style('accordion-admin-css', CUSTOM_ACCORDION_PLUGIN_PATH.'admin/css/accordion-backend-admin.css');
-			wp_enqueue_script('accordion-admin-js', CUSTOM_ACCORDION_PLUGIN_PATH.'admin/js/accordion-backend-admin.js', array('jquery'), '1.0.0', true );
-
+			wp_enqueue_script('accordion-admin-js', plugins_url( 'admin/js/accordion-backend-admin.js', __FILE__ ), array('jquery'), '1.0', false);
 			wp_enqueue_style('wp-color-picker');
 			wp_enqueue_script( 'accordion_color_picker', plugins_url('admin/js/color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
 			wp_enqueue_script("jquery-ui-sortable");
@@ -58,7 +70,7 @@
 	 * Add Pro Version Link on Plugin Page
 	 */
 	function tps_accordion_prover_action_links( $links ) {
-		$links[] = '<a href="https://themepoints.com/product/wp-accordions-pro" style="color: red; font-weight: bold;" target="_blank">Buy Pro!</a>';
+		$links[] = '<a href="https://themepoints.com/wp-accordions/" style="color: red; font-weight: bold;" target="_blank">Buy Pro!</a>';
 		return $links;
 	}
 	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'tps_accordion_prover_action_links' );
@@ -116,7 +128,7 @@
 		$title = 'Accordion Group Title';
 	  }  
 	  return $title;
-	}	
+	}
 	add_filter( 'enter_title_here', 'custom_accordion_wordpress_title' );
 
 	/**
@@ -153,12 +165,13 @@
 		$atts = shortcode_atts(
 			array(
 				'id' => "",
-			), $atts);
-			global $post;
-			$post_id = $atts['id'];
-			
-			$content = '';
-			$content.= TCP_accordions_wordpress_table_body($post_id);
-			return $content;
+			), $atts
+		);
+		global $post;
+		$post_id = $atts['id'];
+		
+		$content = '';
+		$content.= TCP_accordions_wordpress_table_body($post_id);
+		return $content;
 	}// shortcode hook
 	add_shortcode('tcpaccordion', 'custom_accordion_shortcode_register');

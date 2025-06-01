@@ -1,10 +1,10 @@
 === Accordion ===
 Contributors: themepoints
-Donate link: https://themepoints.com/product/wp-accordions-pro
+Donate link: https://themepoints.com/wp-accordions/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode, Responsive accordions plugin
 Requires at least: 4.0
 Tested up to: 6.8.1
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,11 +12,10 @@ Responsive HTML & CSS3 accordion for WordPress.
 
 == Description ==
 
-Accordion's wp is a fully responsive HTML & CSS3 WordPress plugin that offering a modern and engaging user experience.
-
+Accordion is a responsive accordion plugin for WordPress, offering multiple styles, skins, and customization options for displaying content in a compact and organized format.
 
 <ul>
-	<li><a href="https://themepoints.com/product/wp-accordions-pro">Live Preview</a></li>
+	<li><a href="https://themepoints.com/wp-accordions/">Live Preview</a></li>
 	<li><a href="https://themepoints.com/wp-accordions/free-version-doc/">Documentation</a></li>
 	<li><a href="https://themepoints.com/contact/">Need Support</a></li>
 </ul>
@@ -107,7 +106,7 @@ After Publish your accordion, you’ll see a notification that the accordion has
 
 <strong> Note :</strong>
 
-Some features is not available in free version . [Upgrade Premium!&raquo;](https://themepoints.com/product/wp-accordions-pro/)  to unlock all amazing features.
+Some features is not available in free version . [Upgrade Premium!&raquo;](https://themepoints.com/wp-accordions/)  to unlock all amazing features.
  
 
 == Installation ==
@@ -128,9 +127,6 @@ Some features is not available in free version . [Upgrade Premium!&raquo;](https
 When accordions options setup done please copy & paste shortcode into your theme any where you want to display this accordions.
 
 <br /><br />
-
-
-
 
 
 == Screenshots ==
@@ -154,6 +150,11 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 
 == Changelog ==
+
+= 3.0.1 =
+* Update Option Page.
+* Added New Options.
+* Added Color Picker.
 
 = 3.0.0 =
 * Update Option Page.
@@ -243,7 +244,6 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 * fix post limit.
 * add option in setting page.
-
 
 = 1.0 =
 * Initial release

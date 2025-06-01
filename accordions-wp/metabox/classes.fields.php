@@ -1362,7 +1362,7 @@ class CMB_Group_Field extends CMB_Field {
 
 				</div>
 
-				<button class="button repeat-field button button-primary"><?php esc_html_e( 'Add New Item (Unlimited For Pro)', 'cmb' ); ?></button>
+				<button class="button repeat-field button button-primary"><?php esc_html_e( 'Add New Item (Unlock Unlimited)', 'cmb' ); ?></button>
 
 		<?php }
 

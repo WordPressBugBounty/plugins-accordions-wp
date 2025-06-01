@@ -40,7 +40,7 @@
 			'description'           => __( 'Accordion Post Type Description', 'tcaccordion' ),
 			'labels'                => $labels,
 			'supports'              => array( 'title'),
-			'menu_icon' 			=> CUSTOM_ACCORDION_PLUGIN_PATH.'css/accordion.png',
+			'menu_icon' 			=> TCACCORDION_PLUGIN_URL.'css/accordion.png',
 			'hierarchical'          => false,
 			'public'                => true,
 			'show_ui'               => true,
@@ -63,7 +63,7 @@
 	function custom_accordion_wordpress_add_custom_box() {
 		$screens = array( 'accordion_tp' );
 		foreach ( $screens as $screen ){
-			add_meta_box('accordion_sectionid', __( 'Accordion Configure','tcaccordion' ),'custom_accordion_wordpress_inner_custom_box', $screen);
+			add_meta_box('accordion_sectionid', __( 'Accordion Settings','tcaccordion' ),'custom_accordion_wordpress_inner_custom_box', $screen);
 		}     
 	}
 	add_action( 'add_meta_boxes', 'custom_accordion_wordpress_add_custom_box' );
@@ -345,7 +345,6 @@
 		    $custom_accordion_content_font_color = sanitize_hex_color( $_POST['custom_accordion_content_font_color'] );
 		    update_post_meta( $post_id, 'custom_accordion_content_font_color', $custom_accordion_content_font_color );
 		}
-
 	}
 	// Do something with the data entered
 	add_action( 'save_post', 'custom_accordion_wordpress_save_postdata' );
