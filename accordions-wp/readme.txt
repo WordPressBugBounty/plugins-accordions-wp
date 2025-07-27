@@ -1,10 +1,10 @@
-=== Accordion ===
+=== Accordions – Responsive Accordion & FAQ Plugin for WordPress ===
 Contributors: themepoints
 Donate link: https://themepoints.com/wp-accordions/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode, Responsive accordions plugin
 Requires at least: 4.0
-Tested up to: 6.8.1
-Stable tag: 3.0.1
+Tested up to: 6.8.2
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Responsive HTML & CSS3 accordion for WordPress.
 
 == Description ==
 
-Accordion is a responsive accordion plugin for WordPress, offering multiple styles, skins, and customization options for displaying content in a compact and organized format.
+Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
 
 <ul>
 	<li><a href="https://themepoints.com/wp-accordions/">Live Preview</a></li>
@@ -150,6 +150,12 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 
 == Changelog ==
+
+= 3.0.2 =
+* Update Option Page.
+* Added New Options.
+* Fix CSS Issues.
+* Fix javascript Issues.
 
 = 3.0.1 =
 * Update Option Page.

@@ -87,11 +87,11 @@
 		$custom_accordion_content_bg_color         = get_post_meta( $post->ID, 'custom_accordion_content_bg_color', true );
 		$custom_accordion_content_font_color       = get_post_meta( $post->ID, 'custom_accordion_content_font_color', true );
 		$custom_accordion_content_font_size        = get_post_meta( $post->ID, 'custom_accordion_content_font_size', true );
-		$custom_accordion_content_padding          = get_post_meta( $post->ID, 'custom_accordion_content_padding', true );		
+		$custom_accordion_content_padding          = get_post_meta( $post->ID, 'custom_accordion_content_padding', true );
 		$_tpaccpro_wiki_acc_themes_title_position  = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_title_position', true );
 		$_tpaccpro_wiki_acc_themes_show_hide_icons = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_show_hide_icons', true );
 		$_tpaccpro_wiki_acc_themes_icon_position   = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_themes_icon_position', true );
-		$_tpaccpro_wiki_acc_theme_content_margin   = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_theme_content_margin', true );		
+		$_tpaccpro_wiki_acc_theme_content_margin   = get_post_meta( $post->ID, '_tpaccpro_wiki_acc_theme_content_margin', true );
 		?>
 
 		<div id="tabs-container">
