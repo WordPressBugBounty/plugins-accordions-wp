@@ -76,8 +76,6 @@
 		global $post;
 		// Use nonce for verification
 		wp_nonce_field( plugin_basename( __FILE__ ), 'custom_accordion_wordpress_dynamicMeta_noncename' );
-		?>
-		<?php
 
 		//get the saved meta as an arry
 		$custom_accordion_columns_post_themes      = get_post_meta( $post->ID, 'custom_accordion_columns_post_themes', true );
@@ -247,7 +245,7 @@
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 	<?php
 	}
 	

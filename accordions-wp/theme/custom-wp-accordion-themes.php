@@ -3,7 +3,7 @@
         exit;
     }
 
-	function TCP_accordions_wordpress_table_body($postid){
+	function TCP_accordions_wordpress_table_body( $postid ){
 		$tcpfeaturess                         = get_post_meta( $postid, 'custom_accordion_wordpresspro_columns');
 		$custom_accordion_columns_post_themes = get_post_meta( $postid, 'custom_accordion_columns_post_themes', true );
 		$custom_accordion_title_bg_color      = get_post_meta( $postid, 'custom_accordion_title_bg_color', true );

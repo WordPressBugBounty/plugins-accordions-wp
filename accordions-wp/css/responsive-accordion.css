@@ -8,11 +8,24 @@
 
 /*	#Reset
 //	================================================== */
-.responsive-accordion { margin: 0 0 20px 0;	padding: 0;	list-style-type: none; }
-.responsive-accordion li { margin: 0 0 10px 0; padding: 0; }
-.responsive-accordion li:last-child { margin-bottom: 0; }
-.responsive-accordion li .responsive-accordion-head { cursor: pointer; }
-.responsive-accordion li .responsive-accordion-head.active { font-weight: normal; }
+.responsive-accordion {
+	margin: 0 0 20px 0;
+	padding: 0;
+	list-style-type: none;
+}
+.responsive-accordion li {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+.responsive-accordion li:last-child {
+	margin-bottom: 0;
+}
+.responsive-accordion li .responsive-accordion-head {
+	cursor: pointer;
+}
+.responsive-accordion li .responsive-accordion-head.active {
+	font-weight: normal;
+}
 
 /*Themes theme1*/
 .responsive-accordion-default.responsive-accordion li .responsive-accordion-head {
