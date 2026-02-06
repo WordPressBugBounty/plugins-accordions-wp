@@ -3,8 +3,8 @@ Contributors: themepoints
 Donate link: https://themepoints.com/wp-accordions/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode, Responsive accordions plugin
 Requires at least: 4.0
-Tested up to: 6.8.2
-Stable tag: 3.0.3
+Tested up to: 6.9
+Stable tag: 3.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,12 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 
 == Changelog ==
+
+= 3.0.5 =
+* Fix Video Display Issue.
+
+= 3.0.4 =
+* Fix Security Issue.
 
 = 3.0.3 =
 * Update Option Page.

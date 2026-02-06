@@ -3,7 +3,7 @@
 	 * Plugin Name: Accordion-WP
 	 * Plugin URI:  https://themepoints.com/wp-accordions/
 	 * Description: Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
-	 * Version:     3.0.3
+	 * Version:     3.0.5
 	 * Author:      Themepoints
 	 * Author URI:  https://themepoints.com
 	 * Text Domain: tcaccordion
@@ -168,6 +168,7 @@
 			), $atts
 		);
 		global $post;
+		
 		$post_id = $atts['id'];
 
 		$content = '';

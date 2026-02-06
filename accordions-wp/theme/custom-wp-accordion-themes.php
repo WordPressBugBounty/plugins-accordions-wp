@@ -21,11 +21,36 @@
 					foreach ($tcpfeaturess as $tcpfeature) {
 						$logotesting.='<li>';
 						$logotesting.='<div class="responsive-accordion-head" style="background-color:'.esc_attr( $custom_accordion_title_bg_color ).'">';
-						$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_attr( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
+						$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_html( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
 						$logotesting.='<i class="fa fa-chevron-down responsive-accordion-plus fa-fw"></i><i class="fa fa-chevron-up responsive-accordion-minus fa-fw"></i>';
 						$logotesting.='</div>';
-						$logotesting.='<div class="responsive-accordion-panel"style="background-color:'.esc_attr( $custom_accordion_content_bg_color ).';padding:'.$custom_accordion_content_padding.'px;color:'.esc_attr( $custom_accordion_content_font_color ).';font-size:'.esc_attr( $custom_accordion_content_font_size ).'px">';
-						$logotesting.=''.wpautop( do_shortcode( $tcpfeature['custom_accordions_pro_details'] ) ).'';
+
+						global $wp_embed;
+
+						$content = isset( $tcpfeature['custom_accordions_pro_details'] ) 
+						    ? $tcpfeature['custom_accordions_pro_details'] 
+						    : '';
+
+						$content = $wp_embed->autoembed( $content );
+						$content = $wp_embed->run_shortcode( $content );
+						$content = do_shortcode( $content );
+
+						$allowed_html = wp_kses_allowed_html( 'post' );
+						$allowed_html['iframe'] = array(
+						    'src'             => true,
+						    'width'           => true,
+						    'height'          => true,
+						    'frameborder'     => true,
+						    'allow'           => true,
+						    'allowfullscreen' => true,
+						    'title'           => true,
+						);
+
+						$content = wp_kses( $content, $allowed_html );
+						$content = wpautop( $content );
+
+						$logotesting.='<div class="responsive-accordion-panel"style="background-color:'.esc_attr( $custom_accordion_content_bg_color ).';padding:'.esc_attr( $custom_accordion_content_padding ).'px;color:'.esc_attr( $custom_accordion_content_font_color ).';font-size:'.esc_attr( $custom_accordion_content_font_size ).'px">';
+						$logotesting .= $content;
 						$logotesting.='</div>';
 						$logotesting.='</li>';
 					};
@@ -40,11 +65,36 @@
 					foreach ($tcpfeaturess as $tcpfeature) {
 						$logotesting.='<li>';
 						$logotesting.='<div class="responsive-accordion-head" style="background-color:'.esc_attr( $custom_accordion_title_bg_color ).'">';
-						$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_attr( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
+						$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_html( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
 						$logotesting.='<i class="fa fa-chevron-down responsive-accordion-plus fa-fw"></i><i class="fa fa-chevron-up responsive-accordion-minus fa-fw"></i>';
 						$logotesting.='</div>';
+
+						global $wp_embed;
+
+						$content = isset( $tcpfeature['custom_accordions_pro_details'] ) 
+						    ? $tcpfeature['custom_accordions_pro_details'] 
+						    : '';
+
+						$content = $wp_embed->autoembed( $content );
+						$content = $wp_embed->run_shortcode( $content );
+						$content = do_shortcode( $content );
+
+						$allowed_html = wp_kses_allowed_html( 'post' );
+						$allowed_html['iframe'] = array(
+						    'src'             => true,
+						    'width'           => true,
+						    'height'          => true,
+						    'frameborder'     => true,
+						    'allow'           => true,
+						    'allowfullscreen' => true,
+						    'title'           => true,
+						);
+
+						$content = wp_kses( $content, $allowed_html );
+						$content = wpautop( $content );
+
 						$logotesting.='<div class="responsive-accordion-panel"style="background-color:'.esc_attr( $custom_accordion_content_bg_color ).';padding:'.esc_attr( $custom_accordion_content_padding ).'px;color:'.esc_attr( $custom_accordion_content_font_color ).';font-size:'.esc_attr( $custom_accordion_content_font_size ).'px">';
-						$logotesting.=''.wpautop( do_shortcode( $tcpfeature['custom_accordions_pro_details'] ) ).'';
+						$logotesting.= $content;
 						$logotesting.='</div>';
 						$logotesting.='</li>';
 					};
@@ -59,11 +109,36 @@
 				foreach ($tcpfeaturess as $tcpfeature) {
 					$logotesting.='<li>';
 					$logotesting.='<div class="responsive-accordion-head" style="background-color:'.esc_attr( $custom_accordion_title_bg_color ).'">';
-					$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_attr( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
+					$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_html( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
 					$logotesting.='<i class="fa fa-chevron-down responsive-accordion-plus fa-fw"></i><i class="fa fa-chevron-up responsive-accordion-minus fa-fw"></i>';
 					$logotesting.='</div>';
+
+					global $wp_embed;
+
+					$content = isset( $tcpfeature['custom_accordions_pro_details'] ) 
+					    ? $tcpfeature['custom_accordions_pro_details'] 
+					    : '';
+
+					$content = $wp_embed->autoembed( $content );
+					$content = $wp_embed->run_shortcode( $content );
+					$content = do_shortcode( $content );
+
+					$allowed_html = wp_kses_allowed_html( 'post' );
+					$allowed_html['iframe'] = array(
+					    'src'             => true,
+					    'width'           => true,
+					    'height'          => true,
+					    'frameborder'     => true,
+					    'allow'           => true,
+					    'allowfullscreen' => true,
+					    'title'           => true,
+					);
+
+					$content = wp_kses( $content, $allowed_html );
+					$content = wpautop( $content );
+
 					$logotesting.='<div class="responsive-accordion-panel"style="background-color:'.esc_attr( $custom_accordion_content_bg_color ).';padding:'.esc_attr( $custom_accordion_content_padding ).'px;color:'.esc_attr( $custom_accordion_content_font_color ).';font-size:'.esc_attr( $custom_accordion_content_font_size ).'px">';
-					$logotesting.=''.wpautop( do_shortcode( $tcpfeature['custom_accordions_pro_details'] ) ).'';
+					$logotesting .= $content;
 					$logotesting.='</div>';
 					$logotesting.='</li>';
 				};
@@ -78,11 +153,36 @@
 				foreach ($tcpfeaturess as $tcpfeature) {
 					$logotesting.='<li>';
 					$logotesting.='<div class="responsive-accordion-head" style="background-color:'.esc_attr( $custom_accordion_title_bg_color ).'">';
-					$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_attr( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
+					$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_html( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
 					$logotesting.='<i class="fa fa-chevron-down responsive-accordion-plus fa-fw"></i><i class="fa fa-chevron-up responsive-accordion-minus fa-fw"></i>';
 					$logotesting.='</div>';
+
+					global $wp_embed;
+
+					$content = isset( $tcpfeature['custom_accordions_pro_details'] ) 
+					    ? $tcpfeature['custom_accordions_pro_details'] 
+					    : '';
+
+					$content = $wp_embed->autoembed( $content );
+					$content = $wp_embed->run_shortcode( $content );
+					$content = do_shortcode( $content );
+
+					$allowed_html = wp_kses_allowed_html( 'post' );
+					$allowed_html['iframe'] = array(
+					    'src'             => true,
+					    'width'           => true,
+					    'height'          => true,
+					    'frameborder'     => true,
+					    'allow'           => true,
+					    'allowfullscreen' => true,
+					    'title'           => true,
+					);
+
+					$content = wp_kses( $content, $allowed_html );
+					$content = wpautop( $content );
+
 					$logotesting.='<div class="responsive-accordion-panel"style="background-color:'.esc_attr( $custom_accordion_content_bg_color ).';padding:'.esc_attr( $custom_accordion_content_padding ).'px;color:'.esc_attr( $custom_accordion_content_font_color ).';font-size:'.esc_attr( $custom_accordion_content_font_size ).'px">';
-					$logotesting.=''.wpautop( do_shortcode( $tcpfeature['custom_accordions_pro_details'] ) ).'';
+					$logotesting .= $content;
 					$logotesting.='</div>';
 					$logotesting.='</li>';
 				};
@@ -97,11 +197,36 @@
 				foreach ($tcpfeaturess as $tcpfeature) {
 					$logotesting.='<li>';
 					$logotesting.='<div class="responsive-accordion-head" style="background-color:'.esc_attr( $custom_accordion_title_bg_color ).'">';
-					$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_attr( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
+					$logotesting.='<span style="color:'.esc_attr( $custom_accordion_title_font_color ).';font-size:'.esc_attr( $custom_accordion_title_font_size ).'px">'.esc_html( $tcpfeature['custom_accordions_pro_title'] ).'</span>';
 					$logotesting.='<i class="fa fa-chevron-down responsive-accordion-plus fa-fw"></i><i class="fa fa-chevron-up responsive-accordion-minus fa-fw"></i>';
 					$logotesting.='</div>';
+
+					global $wp_embed;
+
+					$content = isset( $tcpfeature['custom_accordions_pro_details'] ) 
+					    ? $tcpfeature['custom_accordions_pro_details'] 
+					    : '';
+
+					$content = $wp_embed->autoembed( $content );
+					$content = $wp_embed->run_shortcode( $content );
+					$content = do_shortcode( $content );
+
+					$allowed_html = wp_kses_allowed_html( 'post' );
+					$allowed_html['iframe'] = array(
+					    'src'             => true,
+					    'width'           => true,
+					    'height'          => true,
+					    'frameborder'     => true,
+					    'allow'           => true,
+					    'allowfullscreen' => true,
+					    'title'           => true,
+					);
+
+					$content = wp_kses( $content, $allowed_html );
+					$content = wpautop( $content );
+
 					$logotesting.='<div class="responsive-accordion-panel"style="background-color:'.esc_attr( $custom_accordion_content_bg_color ).';padding:'.esc_attr( $custom_accordion_content_padding ).'px;color:'.esc_attr( $custom_accordion_content_font_color ).';font-size:'.esc_attr( $custom_accordion_content_font_size ).'px">';
-					$logotesting.=''.wpautop( do_shortcode( $tcpfeature['custom_accordions_pro_details'] ) ).'';
+					$logotesting .= $content;
 					$logotesting.='</div>';
 					$logotesting.='</li>';
 				};

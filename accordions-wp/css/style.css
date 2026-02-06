@@ -136,3 +136,16 @@
   margin-bottom: 10px;
   line-height: 25px;
 }
+.responsive-accordion-panel iframe,
+.responsive-accordion-panel video,
+.responsive-accordion-panel embed,
+.responsive-accordion-panel object {
+  width: 100% !important;
+  max-width: 100%;
+}
+.responsive-accordion-panel iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+    height: auto;
+  display: block;
+}
