@@ -3,8 +3,8 @@ Contributors: themepoints
 Donate link: https://themepoints.com/wp-accordions/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode, Responsive accordions plugin
 Requires at least: 4.0
-Tested up to: 6.9
-Stable tag: 3.0.5
+Tested up to: 7.0
+Stable tag: 3.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,85 +12,100 @@ Responsive, lightweight, and fully customizable accordion plugin for WordPress. 
 
 == Description ==
 
-**Accordions** is a lightweight, responsive WordPress accordion & FAQ plugin designed to help you organize content clearly and improve user experience.
-
-Create clean, modern accordion sections for FAQs, documentation, feature lists, or long-form content — without writing any code.
-
-The plugin works with all WordPress themes, supports mobile devices, and lets you control colors, fonts, spacing, and animations easily from the admin panel.
+Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
 
 ### Useful Links
+- [Upgrade to Pro](https://themepoints.com/wp-accordions/)
 - [Live Preview](https://themepoints.com/wp-accordions/)
-- [Upgrade to Pro](https://www.themepoints.com/shop/wp-accordions-pro/)
 - [Documentation](https://themepoints.com/wp-accordions/free-version-doc/)
 
-## 🔥 Why Choose Accordions?
+<strong>Plugin Features </strong>
 
-Most accordion plugins are either too basic or overloaded with complex settings.
+* Fully responsive.
+* All Browser support.
+* Unlimited Accordions anywhere in the theme.
+* Use via short-code.
+* 5 Different Themes.
+* Drag & Drop Accordion sorting.
+* WP Editor for accordion content.
+* Custom Title background color.
+* Custom Title Font color.
+* Custom Title Font Size.
+* Custom Content Background Color.
+* Custom Content Font Color.
+* Custom Content Font Size.
+* Content Padding Option.
+* Add and remove accordion item from backend.
+* Highly customized for User Experience.
+* And Many More...
 
-**Accordions focuses on simplicity, performance, and flexibility.**
+<strong>Pro Version Features</strong>
 
-✔ Fully responsive on all devices  
-✔ Clean UI with multiple accordion styles  
-✔ Drag & drop accordion item sorting  
-✔ Easy shortcode usage  
-✔ Custom colors, fonts & spacing  
-✔ Lightweight and fast loading  
-✔ Works with any WordPress theme  
+* All Features of the free version.
+* Fully responsive.
+* 8+ different Themes.
+* Widget Ready.
+* Unlimited Domain.
+* Support wysiwyg text editor.
+* Create accordions by group.
+* Cross-browser compatibility.
+* Drag & Drop accordion items sorting.
+* Add and remove accordion item from backend.
+* Use via short-codes.
+* Accordion header title font size.
+* Accordion header title font color.
+* Accordion header title text position.
+* Accordion header title background color.
+* Show/Hide Accordions expand/collapse icons options.
+* Accordion header closeAble true or false Options.
+* Expand/collapse Slide speed of Animation Options.
+* Accordion content font size.
+* Accordion content font color.
+* Accordion content background.
+* Custom Accordion Padding Options.
+* Accordion area background image Options.
+* Accordions Area Padding Options.
+* Support Any videos (Ex: youtube, vimeo )
+* Valid HTML5 & CSS3 layout.
+* Highly customized for User Experience.
+* Clean Design & Code.
+* Unlimited accordion anywhere in the themes or template.
+* Work in all browsers and mobile devices.
+* Life Time Self hosted auto updated enable.
+* 24/7 dedicated support forum.
+* Well Documentation.
+* And much more!
 
-Perfect for FAQs, documentation pages, product details, and content-heavy websites.
+
+<strong>Activation</strong>
+
+Once the accordion-wp folder has been uploaded, you can activate the plugin. Go to your WordPress admin panel and select the ‘Plugins’ menu option. You should see a new plugin listed, Accordion-Wp. Click Activate to activate the plugin.
 
 
-## Key Features – Free Version
+<strong>Using the Plugin</strong>
 
-✔ Create unlimited accordions  
-✔ Responsive accordion layouts  
-✔ 5 built-in accordion themes  
-✔ Drag & drop accordion item sorting  
-✔ WYSIWYG editor for accordion content  
-✔ Custom title & content colors  
-✔ Font size & padding controls  
-✔ Shortcode support  
-✔ Mobile & cross-browser compatible  
+Once the plugin has been activated, a new menu called Accordion will appear in menu section. There are Three menu options: ‘Accordion’, ‘Add New Accordion’ & ‘Help & Support’.
 
-## Pro Version – Unlock Advanced Controls 🚀
 
-Upgrade to **Accordions Pro** to build professional, feature-rich accordion sections.
+<strong>Creating First Accordion</strong>
 
-🔥 8+ premium accordion themes  
-🔥 Grouped accordions & widget support  
-🔥 Advanced animation speed controls  
-🔥 Expand / collapse icon controls  
-🔥 Header alignment & typography options  
-🔥 Background image support  
-🔥 Video support (YouTube, Vimeo, etc.)  
-🔥 Unlimited usage  
-🔥 Lifetime updates  
-🔥 Priority support  
+Click the Accordion submenu entry entitled ‘Add New Accordion’. This will take you to the accordion creation and editing page, Then click Add New Item to add accordion.
 
-👉 Ideal for agencies, businesses, and professional websites.
+Begin by entering a title & description for your accordion. Description Content can be entered using the Visual or HTML content editors. Any valid HTML content (e.g. images, video etc.) can be displayed inside accordion.
 
----
+To add a new accordion, Just click the ‘Add New Item’ button & fill all the data .
 
-## Who Is This Plugin For?
+To remove a Accordion, click the ‘Remove’ button located top right side of the accordion title or visual editor.
 
-✔ Bloggers & content creators  
-✔ Business & corporate websites  
-✔ Product & service pages  
-✔ Documentation & knowledge bases  
-✔ FAQ & support pages  
-✔ Agencies & developers  
 
----
+<strong>Inserting Accordion into a Post/page or Widget</strong>
 
-## Easy to Use – No Coding Required
+After Publish your accordion, you’ll see a notification that the accordion has been Published, then go to ‘Accordion Configure ’ change your own settings & Shortcode tab copy the shortcode & paste into any where into your post/page or text widgets. save your post/page or widgets and browse to see your accordion.
 
-1. Install and activate the plugin  
-2. Go to **Accordion → Add New**  
-3. Add accordion items with title & content  
-4. Customize styles & settings  
-5. Copy the shortcode and paste it anywhere  
 
-Done 🎉
+<strong> Note :</strong>
+
+Some features is not available in free version . [Upgrade Premium!&raquo;](https://themepoints.com/wp-accordions/)  to unlock all amazing features.
  
 
 == Installation ==
@@ -110,23 +125,7 @@ Done 🎉
 <strong>How to use short-code?</strong><br />
 When accordions options setup done please copy & paste shortcode into your theme any where you want to display this accordions.
 
-== Frequently Asked Questions ==
-
-= Does this plugin work with any WordPress theme? =
-Yes, Accordions works with all WordPress themes.
-
-= Is coding required? =
-No, everything is managed via UI and shortcodes.
-
-= Is the plugin mobile responsive? =
-Yes, all accordions are fully responsive.
-
-= Can I create unlimited accordions? =
-The free version includes a limited number of accordions for testing and basic use.  
-Upgrade to the **Pro version** to create **unlimited accordions** with all styles and advanced options unlocked.
-
-= Is there a Pro version available? =
-Yes, the Pro version includes premium themes, animations, widgets, and priority support.
+<br /><br />
 
 
 == Screenshots ==
@@ -143,8 +142,17 @@ Yes, the Pro version includes premium themes, animations, widgets, and priority 
 10. screenshot-10
 11. screenshot-11
 
+== Upgrade Notice ==
+
+
+== Frequently Asked Questions ==
+
 
 == Changelog ==
+
+= 3.0.6 =
+* Update Options page.
+* Fix CSS Issue.
 
 = 3.0.5 =
 * Fix Video Display Issue.

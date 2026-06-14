@@ -349,11 +349,6 @@
 
 	# Carousel Manage Shortcode Column 
 	function custom_accordion_wordpress_shortcode_column( $rsbboxcolumns ) {
-		$order='asc';
-		if($_GET['order']=='asc') {
-			$order='desc';
-		}
-
 		$rsbboxcolumns = array(
 			"cb"          => "<input type=\"checkbox\" />",
 			"title"       => __('Shortcode Name', 'tcaccordion'),
