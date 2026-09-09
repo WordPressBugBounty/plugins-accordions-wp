@@ -1,0 +1,323 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Accordion Wp\n"
+"POT-Creation-Date: 2026-09-09 10:09+0600\n"
+"PO-Revision-Date: 2026-09-09 10:09+0600\n"
+"Last-Translator: \n"
+"Language-Team: Themepoints\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_nx;_ex;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+
+#: admin/class-accordion-metabox.php:59
+msgid "Accordions"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:60 admin/class-accordion-metabox.php:61
+#: admin/class-accordion-metabox.php:62 admin/class-accordion-metabox.php:76
+msgid "Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:63
+msgid "All Accordions"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:64 admin/class-accordion-metabox.php:65
+msgid "Add New Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:66
+msgid "New Item Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:67
+msgid "Edit Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:68
+msgid "Update Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:69
+msgid "View Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:70
+msgid "Search Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:71
+msgid "Accordion Not found"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:72
+msgid "Accordion Not found in Trash"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:77
+msgid "Accordion Post Type"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:122
+msgid "Accordion Control Panel"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:180
+msgid "Add Item"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:181 admin/class-accordion-metabox.php:537
+msgid "Remove"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:182
+#, php-format
+msgid "Free version is limited to %d items."
+msgstr ""
+
+#: admin/class-accordion-metabox.php:207
+msgid "Accordion Content"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:213
+msgid "Accordion Settings"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:253
+msgid "Add Accordion Item"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:262
+#, php-format
+msgid ""
+"Free version is limited to %d items. Upgrade to Pro for unlimited items."
+msgstr ""
+
+#: admin/class-accordion-metabox.php:310
+msgid "Sun Flower"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:311
+msgid "Orange"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:312
+msgid "Pumpkin"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:313
+msgid "Alizarin"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:314
+msgid "Carrot"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:319
+msgid "Accordion Themes"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:339
+msgid "Title BG Color"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:344
+msgid "Title Font Color"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:349
+msgid "Title Font Size"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:354
+msgid "Title Text Position"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:357 admin/class-accordion-metabox.php:378
+msgid "Left"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:358
+msgid "Center"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:359 admin/class-accordion-metabox.php:379
+msgid "Right"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:365
+msgid "Show/Hide Icon"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:368
+msgid "Show"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:369
+msgid "Hide"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:375
+msgid "Icon Position"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:385
+msgid "Content BG Color"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:390
+msgid "Content Font Color"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:395
+msgid "Content Font Size"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:400
+msgid "Margin Between Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:405
+msgid "Content Padding"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:500
+msgid "New Accordion"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:509
+msgid "Accordion Title"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:519
+msgid "Description"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:638
+msgid "Shortcode Name"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:639 admin/class-accordion-metabox.php:671
+msgid "Shortcode"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:640
+msgid "Template Shortcode"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:641
+msgid "Date"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:671 admin/class-accordion-metabox.php:675
+msgid "Copied!"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:675
+msgid "PHP Code"
+msgstr ""
+
+#: admin/class-accordion-metabox.php:701
+msgid "Accordion Group Title"
+msgstr ""
+
+#: admin/class-tcaccordion-admin-support.php:34
+#: admin/class-tcaccordion-admin-support.php:35 admin/views/support-page.php:17
+msgid "Support"
+msgstr ""
+
+#: admin/class-tcaccordion-review-notice.php:68
+msgid "[ADMIN PREVIEW MODE]"
+msgstr ""
+
+#: admin/class-tcaccordion-review-notice.php:71
+msgid "Are you enjoying Accordion-WP?"
+msgstr ""
+
+#: admin/class-tcaccordion-review-notice.php:73
+msgid ""
+"Hope you find this plugin helpful! If you like Accordion-WP, would you mind "
+"taking a minute to rate it 5 stars on WordPress.org? Your support means a "
+"lot!"
+msgstr ""
+
+#: admin/class-tcaccordion-review-notice.php:79
+msgid "Leave a Review"
+msgstr ""
+
+#: admin/class-tcaccordion-review-notice.php:83
+msgid "I Already Did"
+msgstr ""
+
+#: admin/class-tcaccordion-review-notice.php:87
+msgid "Maybe Later"
+msgstr ""
+
+#: admin/class-tcaccordion-review-notice.php:103
+msgid "Permission denied."
+msgstr ""
+
+#: admin/views/support-page.php:21
+msgid "Support Forum"
+msgstr ""
+
+#: admin/views/support-page.php:26
+#, php-format
+msgid "If you need any help, please don't hesitate to post it on %1$s or %2$s."
+msgstr ""
+
+#: admin/views/support-page.php:27
+msgid "WordPress.org"
+msgstr ""
+
+#: admin/views/support-page.php:28
+msgid "Themepoints.com"
+msgstr ""
+
+#: admin/views/support-page.php:34
+msgid "Submit a Review"
+msgstr ""
+
+#: admin/views/support-page.php:39
+#, php-format
+msgid ""
+"We spend plenty of time developing this plugin and give it freely to make "
+"your life easier. If you like this plugin, please %1$s. If you have any "
+"problems with the plugin, please %2$s before leaving a review."
+msgstr ""
+
+#: admin/views/support-page.php:40
+msgid "rate it 5 stars"
+msgstr ""
+
+#: admin/views/support-page.php:41
+msgid "let us know"
+msgstr ""
+
+#: admin/views/support-page.php:47
+msgid "Unlock More Features"
+msgstr ""
+
+#: admin/views/support-page.php:52
+#, php-format
+msgid "Upgrading to the %s would unlock more amazing features of this plugin."
+msgstr ""
+
+#: admin/views/support-page.php:53
+msgid "Premium Version"
+msgstr ""
+
+#: custom-accordion-wp.php:208
+msgid "Buy Pro!"
+msgstr ""
+
+#: theme/class-tcaccordion-renderer.php:48
+msgid "Nothing Found!!"
+msgstr ""

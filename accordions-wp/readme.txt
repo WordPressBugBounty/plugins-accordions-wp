@@ -4,7 +4,7 @@ Donate link: https://themepoints.com/wp-accordions/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode, Responsive accordions plugin
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 3.0.6
+Stable tag: 3.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,11 +30,13 @@ Create beautiful, responsive accordions and FAQ sections with multiple styles, s
 * WP Editor for accordion content.
 * Custom Title background color.
 * Custom Title Font color.
-* Custom Title Font Size.
+* Custom Title Font Size & Line Height options.
+* Title Text Alignment (Left, Center, Right).
+* Show/Hide and Position Accordion Icons (Left, Right).
 * Custom Content Background Color.
 * Custom Content Font Color.
-* Custom Content Font Size.
-* Content Padding Option.
+* Custom Content Font Size, Line Height & Letter Spacing options.
+* Content Padding & Accordion Margin Options.
 * Add and remove accordion item from backend.
 * Highly customized for User Experience.
 * And Many More...
@@ -149,6 +151,13 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 
 == Changelog ==
+
+= 3.0.7 =
+* Refactored: Entire plugin architecture modernized to Object-Oriented Programming (OOP) standard with Singleton pattern.
+* Refactored: Split admin views, shortcodes, and frontend theme logic into dedicated handler classes for better modularity and maintenance.
+* Enhanced: Preserved active tab focus in admin metabox across page reloads during post updates with zero content flicker.
+* Enhanced: Sanitized and validated all inline style declarations (color hex values, font sizes, paddings) to prevent broken HTML attributes.
+* Security: Hardened escaping, input sanitization, and strict post type checks across all admin and shortcode inputs using WordPress Coding Standards.
 
 = 3.0.6 =
 * Update Options page.
