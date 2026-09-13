@@ -3,7 +3,7 @@
  * Plugin Name: Accordion-WP
  * Plugin URI:  https://themepoints.com/wp-accordions/
  * Description: Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
- * Version:     3.0.7
+ * Version:     3.0.8
  * Author:      Themepoints
  * Author URI:  https://themepoints.com
  * Text Domain: tcaccordion
@@ -17,6 +17,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// -----------------------------------------------------------------------------
+// 1. FREEMIUS SDK INITIALIZATION
+// -----------------------------------------------------------------------------
+if ( ! function_exists( 'tc_acc_fs' ) ) {
+	/**
+	 * Create a helper function for easy Freemius SDK access.
+	 *
+	 * @return Freemius
+	 */
+	function tc_acc_fs() {
+		global $tc_acc_fs;
+
+		if ( ! isset( $tc_acc_fs ) ) {
+			// Include Freemius SDK.
+			require_once dirname( __FILE__ ) . '/freemius/start.php';
+
+			$tc_acc_fs = fs_dynamic_init( array(
+				'id'             => '39197',
+				'slug'           => 'accordions-wp',
+				'type'           => 'plugin',
+				'public_key'     => 'pk_b4f65fe4ec8ba94d5947c8e4b46eb',
+                'is_premium'          => false,
+                'premium_suffix'      => 'Pro',
+                'has_premium_version' => true,
+                'has_addons'          => false,
+                'has_paid_plans'      => true,
+                'menu'                => array(
+                    'slug'           => 'edit.php?post_type=accordion_tp',
+                    'support'        => false,
+                ),
+			) );
+		}
+
+		return $tc_acc_fs;
+	}
+
+	// Init Freemius.
+	tc_acc_fs();
+
+	// Signal that Freemius was loaded.
+	do_action( 'tc_acc_fs_loaded' );
+}
+
+/**
+ * Global helper function to check if Pro license is active.
+ *
+ * @return bool
+ */
+function tc_acc_is_pro() {
+	return tc_acc_fs()->can_use_premium_code();
+}
+
+// -----------------------------------------------------------------------------
+// 2. MAIN PLUGIN BOOTSTRAP CLASS
+// -----------------------------------------------------------------------------
+
 /**
  * Main Plugin Bootstrap Class.
  */
@@ -27,7 +83,7 @@ final class TCAccordion {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.0.7';
+	const VERSION = '3.0.8';
 
 	/**
 	 * Option key for storing the installation timestamp.
@@ -97,6 +153,12 @@ final class TCAccordion {
 
 		// Shortcode Handler
 		require_once TCACCORDION_PLUGIN_PATH . 'inc/class-tcaccordion-shortcode.php';
+
+		// elementor Handler
+		require_once TCACCORDION_PLUGIN_PATH . 'inc/elementor/class-tcacc-elementor-init.php';
+		
+		// gutenberg Handler
+		require_once TCACCORDION_PLUGIN_PATH . 'inc/class-tcaccordion-gutenberg.php';
 	}
 
 	/**
@@ -161,12 +223,19 @@ final class TCAccordion {
 			TCACCORDION_VERSION
 		);
 
-		wp_register_style(
-			'tcaccordion-style',
-			TCACCORDION_PLUGIN_URL . 'assets/css/style.css',
-			array(),
-			TCACCORDION_VERSION
-		);
+		// wp_register_style(
+		// 	'tcaccordion-style',
+		// 	TCACCORDION_PLUGIN_URL . 'assets/css/style.css',
+		// 	array(),
+		// 	TCACCORDION_VERSION
+		// );
+
+		wp_enqueue_style(
+	        'font-awesome-6',
+	        TCACCORDION_PLUGIN_URL . 'assets/css/all.min.css',
+	        array(),
+	        '6.5.1'
+	    );
 
 		wp_register_script(
 			'tcaccordion-script',
@@ -201,10 +270,17 @@ final class TCAccordion {
 	 * @return array Modified action links.
 	 */
 	public function add_plugin_action_links( $links ) {
+		if ( tc_acc_is_pro() ) {
+		    return $links;
+		}
+		
+		// Dynamically use Freemius pricing/upgrade link if active
+		$upgrade_url = function_exists( 'tc_acc_fs' ) ? tc_acc_fs()->get_upgrade_url() : 'https://themepoints.com/wp-accordions/';
+
 		$custom_links = array(
 			sprintf(
-				'<a href="%s" target="_blank" rel="noopener noreferrer" style="color:#d63638;font-weight:600;">%s</a>',
-				esc_url( 'https://themepoints.com/wp-accordions/' ),
+				'<a href="%s" style="color:#d63638;font-weight:600;">%s</a>',
+				esc_url( $upgrade_url ),
 				esc_html__( 'Buy Pro!', 'tcaccordion' )
 			),
 		);

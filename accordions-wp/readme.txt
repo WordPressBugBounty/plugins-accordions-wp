@@ -4,7 +4,7 @@ Donate link: https://themepoints.com/wp-accordions/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode, Responsive accordions plugin
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 3.0.7
+Stable tag: 3.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,22 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 
 == Changelog ==
+
+= 3.0.8 =
+* Feature: Introduced native Gutenberg Block (`tcaccordion/select-accordion`) with server-side preview rendering inside the block editor canvas.
+* Feature: Added complete InspectorControls (sidebar settings) to the Gutenberg Block for custom attribute overrides.
+* Feature: Created dedicated Elementor Widget (`tcpaccordion_widget`) for seamless live editing within the Elementor builder canvas.
+* Feature: Integrated state-aware dynamic CSS hooks and theme classes (`theme-shadow`, `theme-dark`, `theme-flat`).
+* Feature: Added admin control fields for Title Line Height, Content Line Height, and Content Letter Spacing.
+* Enhancement: Added real-time style enqueuing inside modern WordPress Gutenberg isolated iframe contexts (`enqueue_block_assets`).
+* Enhancement: Implemented `MutationObserver` and dynamic event re-binding in JavaScript for zero-latency preview interactions inside backend builders.
+* Enhancement: Optimized shortcode execution pipeline with output buffering to ensure complete compatibility with Divi, Beaver Builder, and WPBakery.
+* Fix: Resolved critical rendering issue where single-item accordion posts failed to render or displayed "nothing found" in Elementor and dynamic builder previews.
+* Fix: Standardized metadata key resolution between admin save routines, AJAX live preview rendering, and frontend shortcode display.
+* Fix: Resolved CSS flexbox layout issue where `text-align` (left, center, right) was failing on title text headers due to rigid flex spacing.
+* Fix: Corrected icon positioning for center-aligned accordion titles using absolute positioning offsets.
+* Fix: Prevented silent PHP warnings and missing key exceptions during meta array iteration.
+* Fix: Fixed asset loading context so Font Awesome icons and responsive layout CSS load seamlessly in both backend previews and frontend page loads.
 
 = 3.0.7 =
 * Refactored: Entire plugin architecture modernized to Object-Oriented Programming (OOP) standard with Singleton pattern.

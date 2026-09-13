@@ -197,6 +197,36 @@ class TCAccordion_Renderer {
 	 * @return array Style values map.
 	 */
 	private function get_style_settings() {
+		// Default values for Free plan
+		$auto_open    = 1;
+		$closeable    = 'yes';
+		$close_others = 'yes';
+		$open_event   = 'click';
+		$anim_speed   = 300;
+
+		// Retrieve Pro options if licensed
+		if ( function_exists( 'tc_acc_is_pro' ) && tc_acc_is_pro() ) {
+			$auto_open_val = $this->get_meta_value( '_tcacc_auto_open_item', '1', array( 'custom_accordion_auto_open' ) );
+			$closeable_val = $this->get_meta_value( '_tcacc_is_closeable', 'yes', array( 'custom_accordion_is_closeable' ) );
+
+			$auto_open = ( '' !== $auto_open_val ) ? absint( $auto_open_val ) : 1;
+			$closeable = ( 'no' === $closeable_val ) ? 'no' : 'yes';
+
+			$close_others_val = $this->get_meta_value( '_tcacc_close_others', 'yes', array( 'custom_accordion_close_others' ) );
+			$close_others     = ( 'no' === $close_others_val ) ? 'no' : 'yes';
+
+			// New Pro features
+			$open_event_val = $this->get_meta_value( '_tcacc_open_event', 'click' );
+			$open_event     = in_array( $open_event_val, array( 'click', 'hover' ), true ) ? $open_event_val : 'click';
+
+			$anim_speed_val = $this->get_meta_value( '_tcacc_anim_speed', '300' );
+			$anim_speed     = ! empty( $anim_speed_val ) ? absint( $anim_speed_val ) : 300;
+		}
+
+		// Use $this->post_id instead of $post_id
+		$icon_style = get_post_meta( $this->post_id, '_tcacc_icon_style', true );
+		$icon_style = ! empty( $icon_style ) ? $icon_style : 'chevron';
+
 		return array(
 			'title_bg'             => $this->get_meta_value( 'custom_accordion_title_bg_color', '', array( '_custom_accordion_title_bg_color' ) ),
 			'title_color'          => $this->get_meta_value( 'custom_accordion_title_font_color', '', array( '_custom_accordion_title_font_color' ) ),
@@ -212,6 +242,12 @@ class TCAccordion_Renderer {
 			'content_letter_space' => $this->get_meta_value( 'custom_accordion_content_letter_spacing', '0', array( '_custom_accordion_content_letter_spacing' ) ),
 			'item_margin'          => $this->get_meta_value( '_tpaccpro_wiki_acc_theme_content_margin', '5', array( 'custom_accordion_item_margin' ) ),
 			'padding'              => $this->get_meta_value( 'custom_accordion_content_padding', '15', array( '_custom_accordion_content_padding' ) ),
+			'auto_open'            => $auto_open,
+			'closeable'            => $closeable,
+			'close_others'         => $close_others,
+			'icon_style'           => $icon_style,
+			'open_event'           => $open_event,
+			'anim_speed'           => $anim_speed,
 		);
 	}
 
@@ -262,7 +298,7 @@ class TCAccordion_Renderer {
 		} else {
 			// Icon Position
 			if ( '1' === (string) $styles['icon_position'] ) {
-				$css .= $selector . ' .responsive-accordion-head i { order: -1 !important; margin-right: 12px !important; margin-left: 0 !important; float: none !important; }';
+				$css .= $selector . ' .responsive-accordion-head i { order: -1 !important; margin-right: 0px !important; margin-left: 0 !important; float: none !important; }';
 				$css .= $selector . ' .responsive-accordion-head span { order: 1 !important; }';
 			} else {
 				$css .= $selector . ' .responsive-accordion-head i { order: 2 !important; margin-left: 12px !important; margin-right: 0 !important; float: none !important; }';
@@ -370,14 +406,6 @@ class TCAccordion_Renderer {
 		return wpautop( $content );
 	}
 
-	/**
-	 * Build final HTML string for output.
-	 *
-	 * @param array  $items  Normalized items.
-	 * @param array  $styles Styles map.
-	 * @param string $theme  Theme CSS class.
-	 * @return string HTML output.
-	 */
 	private function build_html( $items, $styles, $theme ) {
 		$scope_id        = 'tc-accordion-' . ( $this->post_id ? $this->post_id : rand( 100, 999 ) );
 		$dynamic_css     = $this->build_dynamic_css( $styles, $scope_id );
@@ -385,21 +413,56 @@ class TCAccordion_Renderer {
 		$head_text_style = $this->build_inline_css( $styles, 'head_text' );
 		$panel_style     = $this->build_inline_css( $styles, 'panel' );
 
+		// Resolve dynamic icons based on $styles['icon_style']
+		$icon_style  = ! empty( $styles['icon_style'] ) ? $styles['icon_style'] : 'chevron';
+		$icon_pair   = $this->get_icon_classes( $icon_style, $styles );
+		$closed_icon = $icon_pair['closed'];
+		$open_icon   = $icon_pair['open'];
+
+		$open_event = ! empty( $styles['open_event'] ) ? $styles['open_event'] : 'click';
+		$anim_speed = ! empty( $styles['anim_speed'] ) ? intval( $styles['anim_speed'] ) : 300;
+
 		$output  = $dynamic_css;
-		$output .= '<div id="' . esc_attr( $scope_id ) . '" class="container ' . esc_attr( $theme ) . '" style="width:100%; height:auto">';
+		$output .= '<div id="' . esc_attr( $scope_id ) . '" ';
+		$output .= 'class="tc-accordion-wrapper container ' . esc_attr( $theme ) . '" ';
+		$output .= 'data-auto-open="' . esc_attr( $styles['auto_open'] ) . '" ';
+		$output .= 'data-closeable="' . esc_attr( $styles['closeable'] ) . '" ';
+		$output .= 'data-close-others="' . esc_attr( $styles['close_others'] ) . '" ';
+		$output .= 'data-closed-icon="' . esc_attr( $closed_icon ) . '" ';
+		$output .= 'data-open-icon="' . esc_attr( $open_icon ) . '" ';
+		$output .= 'data-open-event="' . esc_attr( $open_event ) . '" ';
+		$output .= 'data-anim-speed="' . esc_attr( $anim_speed ) . '" ';
+		$output .= 'style="width:100%; height:auto">';
+		
 		$output .= '<ul class="responsive-accordion responsive-accordion-default bm-larger">';
 
-		foreach ( $items as $item ) {
+		$auto_open_index = (int) $styles['auto_open']; // 1-based index
+
+		foreach ( $items as $index => $item ) {
+			$item_num = $index + 1; // Convert 0-based foreach index to 1-based
+			$is_open  = ( $item_num === $auto_open_index );
+
 			$title   = ! empty( $item['title'] ) ? $item['title'] : '';
 			$details = $this->format_content( ! empty( $item['description'] ) ? $item['description'] : '' );
 
+			$head_active_class = $is_open ? ' active' : '';
+			$panel_display     = $is_open ? 'display:block;' : 'display:none;';
+			$active_icon       = $is_open ? $open_icon : $closed_icon;
+
 			$output .= '<li>';
-			$output .= '<div class="responsive-accordion-head"' . $head_style . '>';
+			$output .= '<div class="responsive-accordion-head' . esc_attr( $head_active_class ) . '"' . $head_style . '>';
 			$output .= '<span' . $head_text_style . '>' . esc_html( $title ) . '</span>';
-			$output .= '<i class="fa fa-chevron-down responsive-accordion-plus fa-fw"></i><i class="fa fa-chevron-up responsive-accordion-minus fa-fw"></i>';
+			
+			// Render icon only if icon_style is not set to 'none'
+			if ( 'none' !== $icon_style && ! empty( $active_icon ) ) {
+				$output .= '<span class="responsive-accordion-icon">';
+				$output .= '<i class="fa-solid ' . esc_attr( $active_icon ) . ' fa-fw"></i>';
+				$output .= '</span>';
+			}
+
 			$output .= '</div>';
 
-			$output .= '<div class="responsive-accordion-panel"' . $panel_style . '>';
+			$output .= '<div class="responsive-accordion-panel" style="' . esc_attr( $panel_display ) . '"' . $panel_style . '>';
 			$output .= $details;
 			$output .= '</div>';
 			$output .= '</li>';
@@ -409,6 +472,26 @@ class TCAccordion_Renderer {
 		$output .= '</div>';
 
 		return $output;
+	}
+
+	/**
+	 * Helper function to map selected style to Font Awesome classes.
+	 */
+	private function get_icon_classes( $style, $styles = array() ) {
+		$icons = array(
+			'plus_minus' => array( 'closed' => 'fa-plus', 'open' => 'fa-minus' ),
+			'chevron'    => array( 'closed' => 'fa-chevron-down', 'open' => 'fa-chevron-up' ),
+			'angle'      => array( 'closed' => 'fa-angle-right', 'open' => 'fa-angle-down' ),
+			'caret'      => array( 'closed' => 'fa-caret-right', 'open' => 'fa-caret-down' ),
+			'folder'     => array( 'closed' => 'fa-folder', 'open' => 'fa-folder-open' ),
+			'custom'     => array(
+				'closed' => ! empty( $styles['custom_closed_icon'] ) ? $styles['custom_closed_icon'] : 'fa-plus',
+				'open'   => ! empty( $styles['custom_open_icon'] ) ? $styles['custom_open_icon'] : 'fa-minus',
+			),
+			'none'       => array( 'closed' => '', 'open' => '' ),
+		);
+
+		return isset( $icons[ $style ] ) ? $icons[ $style ] : $icons['chevron'];
 	}
 }
 

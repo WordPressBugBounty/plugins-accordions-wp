@@ -242,5 +242,19 @@ jQuery(document).ready(function($) {
         $('.tc-color-field').wpColorPicker();
     }
 
+
+    $(document).on('change', '.tcacc-icon-selector input[type="radio"]', function () {
+        const $parentGroup = $(this).closest('.tcacc-icon-selector');
+        
+        // Remove active class from siblings and add to checked parent
+        $parentGroup.find('.tcacc-icon-btn').removeClass('active');
+        $(this).closest('.tcacc-icon-btn').addClass('active');
+
+        // Trigger live preview update if active
+        if (typeof triggerLivePreview === 'function') {
+            triggerLivePreview();
+        }
+    });
+
     checkItemLimit();
 });

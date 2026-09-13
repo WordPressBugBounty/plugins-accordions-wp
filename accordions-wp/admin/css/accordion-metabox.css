@@ -140,3 +140,123 @@
     border-color: #2271b1;
     box-shadow: 0 0 0 1px #2271b1;
 }
+
+/* Container layout for header */
+.responsive-accordion-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Icon wrapper alignment */
+.responsive-accordion-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+/* Font Awesome icon styling */
+.responsive-accordion-icon i {
+    font-size: 14px;
+    transition: transform 0.2s ease-in-out;
+}
+
+
+/* Container layout */
+.tcacc-icon-selector {
+    display: inline-flex;
+    gap: 6px;
+    background: #f0f0f1;
+    padding: 4px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+}
+
+/* Hide native radio input */
+.tcacc-icon-btn input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Button style */
+.tcacc-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 32px;
+    background: #fff;
+    border: 1px solid #8c8f94;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #50575e;
+    transition: all 0.2s ease;
+}
+
+.tcacc-icon-btn:hover {
+    background: #f6f7f7;
+    color: #2271b1;
+    border-color: #2271b1;
+}
+
+/* Active / Selected state */
+.tcacc-icon-btn.active,
+.tcacc-icon-btn input[type="radio"]:checked + .dashicons {
+    color: #fff;
+}
+
+.tcacc-icon-btn:has(input[type="radio"]:checked),
+.tcacc-icon-btn.active {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+
+/* Disabled Pro Theme Card Styling */
+.tc-theme-option.tc-theme-disabled {
+    cursor: not-allowed;
+    position: relative;
+}
+
+/* Slight blur and opacity on disabled cards */
+.tc-theme-option.tc-theme-disabled .tc-theme-card {
+    opacity: 0.5;
+    filter: blur(0.8px);
+    background-color: #f8f9fa;
+    border-color: #e2e8f0;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+/* Remove blur on hover so user can still preview the theme design clearly */
+.tc-theme-option.tc-theme-disabled:hover .tc-theme-card {
+    opacity: 0.75;
+    filter: blur(0px);
+}
+
+/* Red PRO Badge */
+.tc-pro-badge {
+    display: inline-block;
+    background-color: #d63638;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 2px rgba(214, 54, 56, 0.2);
+}
+    .tc-pro-badge-overlay {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 2;
+    pointer-events: none;
+}
