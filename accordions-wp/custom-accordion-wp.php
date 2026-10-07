@@ -3,10 +3,12 @@
  * Plugin Name: Accordion-WP
  * Plugin URI:  https://themepoints.com/wp-accordions/
  * Description: Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
- * Version:     3.0.8
+ * Requires at least: 4.8.0
+ * Requires PHP: 7.4
+ * Version:     3.0.9
  * Author:      Themepoints
  * Author URI:  https://themepoints.com
- * Text Domain: tcaccordion
+ * Text Domain: accordions-wp
  * Domain Path: /languages
  * License:     GPL v2 or later
  *
@@ -43,6 +45,7 @@ if ( ! function_exists( 'tc_acc_fs' ) ) {
                 'has_premium_version' => true,
                 'has_addons'          => false,
                 'has_paid_plans'      => true,
+                'is_org_compliant'    => false,
                 'menu'                => array(
                     'slug'           => 'edit.php?post_type=accordion_tp',
                     'support'        => false,
@@ -83,7 +86,7 @@ final class TCAccordion {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.0.8';
+	const VERSION = '3.0.9';
 
 	/**
 	 * Option key for storing the installation timestamp.
@@ -204,7 +207,7 @@ final class TCAccordion {
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain(
-			'tcaccordion',
+			'accordions-wp',
 			false,
 			dirname( TCACCORDION_PLUGIN_BASENAME ) . '/languages'
 		);
@@ -281,7 +284,7 @@ final class TCAccordion {
 			sprintf(
 				'<a href="%s" style="color:#d63638;font-weight:600;">%s</a>',
 				esc_url( $upgrade_url ),
-				esc_html__( 'Buy Pro!', 'tcaccordion' )
+				esc_html__( 'Buy Pro!', 'accordions-wp' )
 			),
 		);
 

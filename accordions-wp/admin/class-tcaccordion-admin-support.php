@@ -31,8 +31,8 @@ class TCAccordion_Admin_Support {
 	public function register_support_page() {
 		add_submenu_page(
 			'edit.php?post_type=accordion_tp',
-			__( 'Support', 'tcaccordion' ),
-			__( 'Support', 'tcaccordion' ),
+			__( 'Support', 'accordions-wp' ),
+			__( 'Support', 'accordions-wp' ),
 			'manage_options',
 			'tcaccordion-support',
 			array( $this, 'render_support_page' )

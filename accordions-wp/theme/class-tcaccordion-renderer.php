@@ -110,7 +110,7 @@ class TCAccordion_Renderer {
 		$items = $this->get_accordion_items();
 
 		if ( empty( $items ) ) {
-			return '<p>' . esc_html__( 'Nothing Found!!', 'tcaccordion' ) . '</p>';
+			return '<p>' . esc_html__( 'Nothing Found!!', 'accordions-wp' ) . '</p>';
 		}
 
 		$styles = $this->get_style_settings();
@@ -228,6 +228,8 @@ class TCAccordion_Renderer {
 		$icon_style = ! empty( $icon_style ) ? $icon_style : 'chevron';
 
 		return array(
+			'icon_color'           => $this->get_meta_value( 'custom_accordion_icon_color', '', array( 'custom_accordion_icon_color' ) ),
+			'icon_bg_color'        => $this->get_meta_value( 'custom_accordion_icon_bg_color', '', array( 'custom_accordion_icon_bg_color' ) ),
 			'title_bg'             => $this->get_meta_value( 'custom_accordion_title_bg_color', '', array( '_custom_accordion_title_bg_color' ) ),
 			'title_color'          => $this->get_meta_value( 'custom_accordion_title_font_color', '', array( '_custom_accordion_title_font_color' ) ),
 			'title_size'           => $this->get_meta_value( 'custom_accordion_title_font_size', '18', array( '_custom_accordion_title_font_size' ) ),
@@ -272,8 +274,12 @@ class TCAccordion_Renderer {
 		$css      = '';
 		$selector = '#' . esc_attr( $scope_id );
 
+		// Retrieve active theme class directly using helper method
+		$current_theme = $this->get_theme_class();
+		$is_theme_1_or_2 = in_array( $current_theme, array( 'theme1', 'theme2', 'theme-dark', 'theme-flat' ), true );
+
 		// 1. Item Margin
-		if ( '' !== $styles['item_margin'] && null !== $styles['item_margin'] ) {
+		if ( isset( $styles['item_margin'] ) && '' !== (string) $styles['item_margin'] ) {
 			$css .= $selector . ' .responsive-accordion > li { margin-bottom: ' . absint( $styles['item_margin'] ) . 'px !important; }';
 		}
 
@@ -281,41 +287,81 @@ class TCAccordion_Renderer {
 		if ( ! empty( $styles['title_line_height'] ) ) {
 			$line_height = floatval( $styles['title_line_height'] );
 			$css .= $selector . ' .responsive-accordion-head, ';
-			$css .= $selector . ' .responsive-accordion-head span { line-height: ' . $line_height . ' !important; }';
+			$css .= $selector . ' .responsive-accordion-title { line-height: ' . $line_height . ' !important; }';
 		}
 
-		// 3. Flex Container & Span Setup for Alignments
-		$css .= $selector . ' .responsive-accordion-head { display: flex !important; align-items: center !important; position: relative !important; }';
-		$css .= $selector . ' .responsive-accordion-head span { flex: 1 1 auto !important; width: 100% !important; }';
+		// 3. Base Header Layout & Universal Reset
+		$css .= $selector . ' .responsive-accordion-head { display: flex !important; align-items: center !important; position: relative !important; width: 100% !important; box-sizing: border-box !important; }';
+		$css .= $selector . ' .responsive-accordion-title { display: block !important; flex: 1 1 auto !important; width: 100% !important; box-sizing: border-box !important; padding: 0 !important; }';
+		$css .= $selector . ' .responsive-accordion-icon { display: inline-flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; box-sizing: border-box !important; }';
 
-		// 4. Title Text Alignment
-		$align = in_array( $styles['title_position'], array( 'left', 'center', 'right' ), true ) ? $styles['title_position'] : 'left';
-		$css  .= $selector . ' .responsive-accordion-head span { text-align: ' . esc_attr( $align ) . ' !important; }';
+		// Universal Icon Reset: Neutralize float, absolute positioning, height/line-height across all themes
+		$css .= $selector . ' .responsive-accordion-icon, ';
+		$css .= $selector . ' .responsive-accordion-head i, ';
+		$css .= $selector . ' .responsive-accordion-head svg { float: none !important; position: static !important; inset: auto !important; transform: none !important; margin: 0 !important; }';
+		$css .= $selector . ' .responsive-accordion-head i, ';
+		$css .= $selector . ' .responsive-accordion-head svg { width: auto !important; height: auto !important; line-height: 1 !important; display: inline-block !important; }';
 
-		// 5. Hide / Show Icon
-		if ( '2' === (string) $styles['icon_show'] ) {
-			$css .= $selector . ' .responsive-accordion-head i { display: none !important; }';
+		// 4. Horizontal Padding Logic (Explicitly Scoped)
+		if ( $is_theme_1_or_2 ) {
+			// Zero out padding completely for theme1 and theme2
+			$css .= $selector . ' .responsive-accordion-icon { padding: 0 !important; }';
+			$css .= $selector . '.theme1 .responsive-accordion-icon, ' . $selector . '.theme2 .responsive-accordion-icon { padding: 0 !important; }';
 		} else {
-			// Icon Position
-			if ( '1' === (string) $styles['icon_position'] ) {
-				$css .= $selector . ' .responsive-accordion-head i { order: -1 !important; margin-right: 0px !important; margin-left: 0 !important; float: none !important; }';
-				$css .= $selector . ' .responsive-accordion-head span { order: 1 !important; }';
-			} else {
-				$css .= $selector . ' .responsive-accordion-head i { order: 2 !important; margin-left: 12px !important; margin-right: 0 !important; float: none !important; }';
-				$css .= $selector . ' .responsive-accordion-head span { order: 1 !important; }';
-			}
+			// Apply width & horizontal padding for theme3, theme4, theme5, theme-flat, etc.
+			$css .= $selector . ' .responsive-accordion-icon { width: auto !important; min-width: 0 !important; }';
 
-			// Center Alignment Icon Position Fix
+			if ( isset( $styles['icon_padding'] ) && '' !== (string) $styles['icon_padding'] ) {
+				$padding_val = is_numeric( $styles['icon_padding'] ) ? absint( $styles['icon_padding'] ) . 'px' : sanitize_text_field( $styles['icon_padding'] );
+				$css .= $selector . ' .responsive-accordion-icon { padding: ' . $padding_val . ' !important; }';
+			} else {
+				$css .= $selector . ' .responsive-accordion-icon { padding-left: 12px !important; padding-right: 12px !important; }';
+			}
+		}
+
+		// Icon Box Width Override
+		if ( isset( $styles['icon_bg_width'] ) && '' !== (string) $styles['icon_bg_width'] ) {
+			$icon_width = absint( $styles['icon_bg_width'] );
+			$css .= $selector . ' .responsive-accordion-icon { width: ' . $icon_width . 'px !important; min-width: ' . $icon_width . 'px !important; }';
+		}
+
+		// 5. Title Text Alignment
+		$align = in_array( $styles['title_position'], array( 'left', 'center', 'right' ), true ) ? $styles['title_position'] : 'left';
+		$css  .= $selector . ' .responsive-accordion-title { text-align: ' . esc_attr( $align ) . ' !important; }';
+
+		// 6. Hide / Show Icon & Position Logic
+		if ( '2' === (string) $styles['icon_show'] ) {
+			$css .= $selector . ' .responsive-accordion-icon { display: none !important; }';
+		} else {
+			$icon_pos = (string) $styles['icon_position'];
+
 			if ( 'center' === $align ) {
-				$css .= $selector . ' .responsive-accordion-head i { position: absolute !important; right: 15px !important; top: 50% !important; transform: translateY(-50%) !important; }';
-				if ( '1' === (string) $styles['icon_position'] ) {
-					$css .= $selector . ' .responsive-accordion-head i { right: auto !important; left: 15px !important; }';
+				// CENTER TEXT: Absolute position icon container so title remains centered
+				$css .= $selector . ' .responsive-accordion-icon { position: absolute !important; top: 50% !important; transform: translateY(-50%) !important; z-index: 2 !important; }';
+
+				if ( '1' === $icon_pos ) {
+					// Icon LEFT
+					$css .= $selector . ' .responsive-accordion-icon { left: 15px !important; right: auto !important; }';
+				} else {
+					// Icon RIGHT
+					$css .= $selector . ' .responsive-accordion-icon { right: 15px !important; left: auto !important; }';
+				}
+			} else {
+				// LEFT/RIGHT TEXT: Flex ordering
+				if ( '1' === $icon_pos ) {
+					// Icon LEFT
+					$css .= $selector . ' .responsive-accordion-icon { order: 1 !important; margin-right: 12px !important; margin-left: 0 !important; }';
+					$css .= $selector . ' .responsive-accordion-title { order: 2 !important; }';
+				} else {
+					// Icon RIGHT
+					$css .= $selector . ' .responsive-accordion-icon { order: 2 !important; margin-left: 12px !important; margin-right: 0 !important; }';
+					$css .= $selector . ' .responsive-accordion-title { order: 1 !important; }';
 				}
 			}
 		}
 
-		// 6. Content Typography, Color, Line Height, and Letter Spacing
-		if ( ! empty( $styles['content_size'] ) || ! empty( $styles['content_color'] ) || ! empty( $styles['content_line_height'] ) || '' !== $styles['content_letter_space'] ) {
+		// 7. Content Typography, Color, Line Height, and Letter Spacing
+		if ( ! empty( $styles['content_size'] ) || ! empty( $styles['content_color'] ) || ! empty( $styles['content_line_height'] ) || ( isset( $styles['content_letter_space'] ) && '' !== (string) $styles['content_letter_space'] ) ) {
 			$css .= $selector . ' .responsive-accordion-panel, ';
 			$css .= $selector . ' .responsive-accordion-panel p, ';
 			$css .= $selector . ' .responsive-accordion-panel span, ';
@@ -330,7 +376,7 @@ class TCAccordion_Renderer {
 			if ( ! empty( $styles['content_line_height'] ) ) {
 				$css .= 'line-height:' . floatval( $styles['content_line_height'] ) . ' !important;';
 			}
-			if ( '' !== $styles['content_letter_space'] && null !== $styles['content_letter_space'] ) {
+			if ( isset( $styles['content_letter_space'] ) && '' !== (string) $styles['content_letter_space'] ) {
 				$css .= 'letter-spacing:' . floatval( $styles['content_letter_space'] ) . 'px !important;';
 			}
 
@@ -352,6 +398,20 @@ class TCAccordion_Renderer {
 
 		if ( 'head' === $type && ! empty( $styles['title_bg'] ) ) {
 			$css[] = 'background-color:' . sanitize_hex_color( $styles['title_bg'] );
+		}
+
+		if ( 'icon' === $type ) {
+			if ( ! empty( $styles['icon_color'] ) ) {
+				$css[] = 'color:' . sanitize_hex_color( $styles['icon_color'] );
+			}
+
+			// Exclude background-color specifically for theme1 and theme2
+			$current_theme = $this->get_theme_class();
+			$is_theme_1_or_2 = in_array( $current_theme, array( 'theme1', 'theme2', 'theme-dark', 'theme-flat' ), true );
+
+			if ( ! $is_theme_1_or_2 && ! empty( $styles['icon_bg_color'] ) ) {
+				$css[] = 'background-color:' . sanitize_hex_color( $styles['icon_bg_color'] );
+			}
 		}
 
 		if ( 'head_text' === $type ) {
@@ -407,9 +467,11 @@ class TCAccordion_Renderer {
 	}
 
 	private function build_html( $items, $styles, $theme ) {
-		$scope_id        = 'tc-accordion-' . ( $this->post_id ? $this->post_id : rand( 100, 999 ) );
+		$scope_id 		 = 'tc-accordion-' . ( $this->post_id ? $this->post_id : wp_rand( 100, 999 ) );
+		// $scope_id        = 'tc-accordion-' . ( $this->post_id ? $this->post_id : rand( 100, 999 ) );
 		$dynamic_css     = $this->build_dynamic_css( $styles, $scope_id );
 		$head_style      = $this->build_inline_css( $styles, 'head' );
+		$icon_color      = $this->build_inline_css( $styles, 'icon' );
 		$head_text_style = $this->build_inline_css( $styles, 'head_text' );
 		$panel_style     = $this->build_inline_css( $styles, 'panel' );
 
@@ -449,20 +511,37 @@ class TCAccordion_Renderer {
 			$panel_display     = $is_open ? 'display:block;' : 'display:none;';
 			$active_icon       = $is_open ? $open_icon : $closed_icon;
 
+
+			// Generate unique IDs for header and panel accessibility linking
+			$header_id = esc_attr( $scope_id . '-header-' . $item_num );
+			$panel_id  = esc_attr( $scope_id . '-panel-' . $item_num );
+
 			$output .= '<li>';
-			$output .= '<div class="responsive-accordion-head' . esc_attr( $head_active_class ) . '"' . $head_style . '>';
-			$output .= '<span' . $head_text_style . '>' . esc_html( $title ) . '</span>';
+
+
+			$output .= '<div id="' . $header_id . '" ';
+			$output .= 'class="responsive-accordion-head' . esc_attr( $head_active_class ) . '" ';
+			$output .= 'role="button" ';
+			$output .= 'tabindex="0" ';
+			$output .= 'aria-expanded="' . ( $is_open ? 'true' : 'false' ) . '" ';
+			$output .= 'aria-controls="' . $panel_id . '"' . $head_style . '>';
+
+			$output .= '<span class="responsive-accordion-title"' . $head_text_style . '>' . esc_html( $title ) . '</span>';
 			
-			// Render icon only if icon_style is not set to 'none'
+			// ACCESSIBILITY FIX: Added aria-hidden="true" so screen readers don't read out decorative font icons
 			if ( 'none' !== $icon_style && ! empty( $active_icon ) ) {
-				$output .= '<span class="responsive-accordion-icon">';
+				$output .= '<span class="responsive-accordion-icon" aria-hidden="true"' . $icon_color . '>';
 				$output .= '<i class="fa-solid ' . esc_attr( $active_icon ) . ' fa-fw"></i>';
 				$output .= '</span>';
 			}
 
 			$output .= '</div>';
 
-			$output .= '<div class="responsive-accordion-panel" style="' . esc_attr( $panel_display ) . '"' . $panel_style . '>';
+			// ACCESSIBILITY FIX: Added id, role="region", and aria-labelledby linking back to header
+			$output .= '<div id="' . $panel_id . '" ';
+			$output .= 'role="region" ';
+			$output .= 'aria-labelledby="' . $header_id . '" ';
+			$output .= 'class="responsive-accordion-panel" style="' . esc_attr( $panel_display ) . '"' . $panel_style . '>';
 			$output .= $details;
 			$output .= '</div>';
 			$output .= '</li>';

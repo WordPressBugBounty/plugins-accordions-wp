@@ -22,7 +22,7 @@ class TCAccordion_Elementor_Widget extends \Elementor\Widget_Base {
      * Get widget title.
      */
     public function get_title() {
-        return esc_html__( 'TCP Accordion', 'tcaccordion' );
+        return esc_html__( 'TCP Accordion', 'accordions-wp' );
     }
 
     /**
@@ -59,7 +59,7 @@ public function get_style_depends() {
         $this->start_controls_section(
             'content_section',
             array(
-                'label' => esc_html__( 'Accordion Settings', 'tcaccordion' ),
+                'label' => esc_html__( 'Accordion Settings', 'accordions-wp' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             )
         );
@@ -73,7 +73,7 @@ public function get_style_depends() {
             )
         );
 
-        $options = array( '' => esc_html__( 'Select Accordion', 'tcaccordion' ) );
+        $options = array( '' => esc_html__( 'Select Accordion', 'accordions-wp' ) );
         if ( ! empty( $accordions ) ) {
             foreach ( $accordions as $accordion ) {
                 $options[ $accordion->ID ] = $accordion->post_title;
@@ -83,11 +83,11 @@ public function get_style_depends() {
         $this->add_control(
             'accordion_id',
             array(
-                'label'       => esc_html__( 'Select Accordion', 'tcaccordion' ),
+                'label'       => esc_html__( 'Select Accordion', 'accordions-wp' ),
                 'type'        => \Elementor\Controls_Manager::SELECT,
                 'default'     => '',
                 'options'     => $options,
-                'description' => esc_html__( 'Choose an accordion created with TCP Accordion.', 'tcaccordion' ),
+                'description' => esc_html__( 'Choose an accordion created with TCP Accordion.', 'accordions-wp' ),
             )
         );
 
@@ -105,7 +105,7 @@ protected function render() {
     if ( ! $accordion_id ) {
         if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
             echo '<div style="padding: 20px; background: #f8fafc; border: 1px dashed #cbd5e1; text-align: center; border-radius: 6px;">';
-            echo '<p style="margin: 0; color: #64748b; font-weight: 600;">' . esc_html__( 'Please select an accordion from the left widget panel.', 'tcaccordion' ) . '</p>';
+            echo '<p style="margin: 0; color: #64748b; font-weight: 600;">' . esc_html__( 'Please select an accordion from the left widget panel.', 'accordions-wp' ) . '</p>';
             echo '</div>';
         }
         return;
@@ -120,7 +120,7 @@ protected function render() {
 
     if ( empty( trim( $output ) ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
         echo '<div style="padding: 15px; background: #fff1f2; border: 1px solid #fecdd3; color: #e11d48; text-align: center; border-radius: 6px;">';
-        echo esc_html__( 'Accordion found, but contains no active items or failed to render.', 'tcaccordion' );
+        echo esc_html__( 'Accordion found, but contains no active items or failed to render.', 'accordions-wp' );
         echo '</div>';
     } else {
         echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

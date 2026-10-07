@@ -65,26 +65,26 @@ class TCAccordion_Review_Notice {
 		?>
 		<div id="tcaccordion-review-notice" class="notice notice-info is-dismissible tcaccordion-review-wrapper" style="padding: 15px; position: relative;">
 			<?php if ( $is_preview ) : ?>
-				<p><span class="dashicons dashicons-visibility" style="color:#d63638;"></span> <strong><?php esc_html_e( '[ADMIN PREVIEW MODE]', 'tcaccordion' ); ?></strong></p>
+				<p><span class="dashicons dashicons-visibility" style="color:#d63638;"></span> <strong><?php esc_html_e( '[ADMIN PREVIEW MODE]', 'accordions-wp' ); ?></strong></p>
 			<?php endif; ?>
 			
-			<h3 style="margin:0 0 8px 0;"><?php esc_html_e( 'Are you enjoying Accordion-WP?', 'tcaccordion' ); ?></h3>
+			<h3 style="margin:0 0 8px 0;"><?php esc_html_e( 'Are you enjoying Accordion-WP?', 'accordions-wp' ); ?></h3>
 			<p style="margin:0 0 12px 0;">
-				<?php esc_html_e( 'Hope you find this plugin helpful! If you like Accordion-WP, would you mind taking a minute to rate it 5 stars on WordPress.org? Your support means a lot!', 'tcaccordion' ); ?>
+				<?php esc_html_e( 'Hope you find this plugin helpful! If you like Accordion-WP, would you mind taking a minute to rate it 5 stars on WordPress.org? Your support means a lot!', 'accordions-wp' ); ?>
 			</p>
 			
 			<div class="tcaccordion-notice-actions">
 				<a href="<?php echo esc_url( $review_url ); ?>" target="_blank" rel="noopener noreferrer" class="button button-primary tcaccordion-dismiss-btn" data-type="reviewed">
 					<span class="dashicons dashicons-external" style="vertical-align: middle; line-height: 1.3;"></span>
-					<?php esc_html_e( 'Leave a Review', 'tcaccordion' ); ?>
+					<?php esc_html_e( 'Leave a Review', 'accordions-wp' ); ?>
 				</a>
 
 				<button type="button" class="button button-secondary tcaccordion-dismiss-btn" data-type="already" style="margin-left: 6px;">
-					<?php esc_html_e( 'I Already Did', 'tcaccordion' ); ?>
+					<?php esc_html_e( 'I Already Did', 'accordions-wp' ); ?>
 				</button>
 
 				<button type="button" class="button button-link tcaccordion-dismiss-btn" data-type="later" style="margin-left: 6px; text-decoration: none;">
-					<?php esc_html_e( 'Maybe Later', 'tcaccordion' ); ?>
+					<?php esc_html_e( 'Maybe Later', 'accordions-wp' ); ?>
 				</button>
 			</div>
 		</div>
@@ -100,7 +100,7 @@ class TCAccordion_Review_Notice {
 		check_ajax_referer( 'tcaccordion_review_nonce', 'security' );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'tcaccordion' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'accordions-wp' ) ) );
 		}
 
 		$dismiss_type = isset( $_POST['dismiss_type'] ) ? sanitize_key( $_POST['dismiss_type'] ) : 'dismissed';

@@ -57,7 +57,7 @@ class TCAccordion_Gutenberg_Block {
 			'tcaccGutenbergData',
 			array(
 				'accordions' => $accordion_list,
-				'title'      => esc_html__( 'TCP Accordion', 'tcaccordion' ),
+				'title'      => esc_html__( 'TCP Accordion', 'accordions-wp' ),
 			)
 		);
 

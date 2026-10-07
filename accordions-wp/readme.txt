@@ -1,10 +1,10 @@
 === Accordions – Responsive Accordion & FAQ Plugin for WordPress ===
 Contributors: themepoints
-Donate link: https://themepoints.com/wp-accordions/
-Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode, Responsive accordions plugin
-Requires at least: 4.0
-Tested up to: 7.0
-Stable tag: 3.0.8
+Donate link: https://themepoints.com/accordion/
+Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode
+Requires at least: 4.8.0
+Tested up to: 7.1
+Stable tag: 3.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,8 +15,8 @@ Responsive, lightweight, and fully customizable accordion plugin for WordPress. 
 Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
 
 ### Useful Links
-- [Upgrade to Pro](https://themepoints.com/wp-accordions/)
-- [Live Preview](https://themepoints.com/wp-accordions/)
+- [Upgrade to Pro](https://themepoints.com/accordion/)
+- [Live Preview](https://themepoints.com/accordion/)
 - [Documentation](https://themepoints.com/wp-accordions/free-version-doc/)
 
 <strong>Plugin Features </strong>
@@ -107,7 +107,7 @@ After Publish your accordion, you’ll see a notification that the accordion has
 
 <strong> Note :</strong>
 
-Some features is not available in free version . [Upgrade Premium!&raquo;](https://themepoints.com/wp-accordions/)  to unlock all amazing features.
+Some features is not available in free version . [Upgrade Premium!&raquo;](https://themepoints.com/accordion/)  to unlock all amazing features.
  
 
 == Installation ==
@@ -152,6 +152,13 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 == Changelog ==
 
+= 3.0.9 =
+* Fix: Added full WCAG 2.1 AA accessibility compliance across all accordion layouts.
+* Fix: Added tabindex="0" and keyboard navigation (Tab, Enter, Space) for accordion headers.
+* Fix: Added ARIA role="button", aria-expanded, aria-controls, and role="region" panel attributes.
+* Fix: Resolved color contrast ratio requirements for badges and active header states.
+* Updated: Sanitized input data (`sanitize_key`) and output escaping across notice markup.
+
 = 3.0.8 =
 * Feature: Introduced native Gutenberg Block (`tcaccordion/select-accordion`) with server-side preview rendering inside the block editor canvas.
 * Feature: Added complete InspectorControls (sidebar settings) to the Gutenberg Block for custom attribute overrides.
@@ -161,6 +168,7 @@ When accordions options setup done please copy & paste shortcode into your theme
 * Enhancement: Added real-time style enqueuing inside modern WordPress Gutenberg isolated iframe contexts (`enqueue_block_assets`).
 * Enhancement: Implemented `MutationObserver` and dynamic event re-binding in JavaScript for zero-latency preview interactions inside backend builders.
 * Enhancement: Optimized shortcode execution pipeline with output buffering to ensure complete compatibility with Divi, Beaver Builder, and WPBakery.
+* Enhancement: Fully integrated Freemius SDK v2 with compliant opt-in routing and premium feature access control checks.
 * Fix: Resolved critical rendering issue where single-item accordion posts failed to render or displayed "nothing found" in Elementor and dynamic builder previews.
 * Fix: Standardized metadata key resolution between admin save routines, AJAX live preview rendering, and frontend shortcode display.
 * Fix: Resolved CSS flexbox layout issue where `text-align` (left, center, right) was failing on title text headers due to rigid flex spacing.

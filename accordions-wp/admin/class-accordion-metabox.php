@@ -59,25 +59,25 @@ class TCAccordion_Metabox {
 	 */
 	public function register_post_type() {
 		$labels = array(
-			'name'               => _x( 'Accordions', 'Post Type General Name', 'tcaccordion' ),
-			'singular_name'      => _x( 'Accordion', 'Post Type Singular Name', 'tcaccordion' ),
-			'menu_name'          => __( 'Accordion', 'tcaccordion' ),
-			'name_admin_bar'     => __( 'Accordion', 'tcaccordion' ),
-			'all_items'          => __( 'All Accordions', 'tcaccordion' ),
-			'add_new_item'       => __( 'Add New Accordion', 'tcaccordion' ),
-			'add_new'            => __( 'Add New Accordion', 'tcaccordion' ),
-			'new_item'           => __( 'New Item Accordion', 'tcaccordion' ),
-			'edit_item'          => __( 'Edit Accordion', 'tcaccordion' ),
-			'update_item'        => __( 'Update Accordion', 'tcaccordion' ),
-			'view_item'          => __( 'View Accordion', 'tcaccordion' ),
-			'search_items'       => __( 'Search Accordion', 'tcaccordion' ),
-			'not_found'          => __( 'Accordion Not found', 'tcaccordion' ),
-			'not_found_in_trash' => __( 'Accordion Not found in Trash', 'tcaccordion' ),
+			'name'               => _x( 'Accordions', 'Post Type General Name', 'accordions-wp' ),
+			'singular_name'      => _x( 'Accordion', 'Post Type Singular Name', 'accordions-wp' ),
+			'menu_name'          => __( 'Accordion', 'accordions-wp' ),
+			'name_admin_bar'     => __( 'Accordion', 'accordions-wp' ),
+			'all_items'          => __( 'All Accordions', 'accordions-wp' ),
+			'add_new_item'       => __( 'Add New Accordion', 'accordions-wp' ),
+			'add_new'            => __( 'Add New Accordion', 'accordions-wp' ),
+			'new_item'           => __( 'New Item Accordion', 'accordions-wp' ),
+			'edit_item'          => __( 'Edit Accordion', 'accordions-wp' ),
+			'update_item'        => __( 'Update Accordion', 'accordions-wp' ),
+			'view_item'          => __( 'View Accordion', 'accordions-wp' ),
+			'search_items'       => __( 'Search Accordion', 'accordions-wp' ),
+			'not_found'          => __( 'Accordion Not found', 'accordions-wp' ),
+			'not_found_in_trash' => __( 'Accordion Not found in Trash', 'accordions-wp' ),
 		);
 
 		$args = array(
-			'label'               => __( 'Accordion', 'tcaccordion' ),
-			'description'         => __( 'Accordion Post Type', 'tcaccordion' ),
+			'label'               => __( 'Accordion', 'accordions-wp' ),
+			'description'         => __( 'Accordion Post Type', 'accordions-wp' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title' ),
 			'menu_icon'           => defined( 'TCACCORDION_PLUGIN_URL' ) ? TCACCORDION_PLUGIN_URL . 'assets/css/accordion.png' : 'dashicons-list-view',
@@ -122,7 +122,7 @@ class TCAccordion_Metabox {
 	public function register_metabox() {
 		add_meta_box(
 			'custom_accordion_wordpress_feature',
-			__( 'Accordion Control Panel', 'tcaccordion' ),
+			__( 'Accordion Control Panel', 'accordions-wp' ),
 			array( $this, 'render_metabox_wrapper' ),
 			'accordion_tp',
 			'normal',
@@ -167,11 +167,11 @@ class TCAccordion_Metabox {
 		);
 
 		wp_enqueue_style(
-	        'font-awesome-6',
-	        TCACCORDION_PLUGIN_URL . 'assets/css/all.min.css',
-	        array(),
-	        '6.5.1'
-	    );
+			'font-awesome-6',
+			TCACCORDION_PLUGIN_URL . 'assets/css/all.min.css',
+			array(),
+			'6.5.1'
+		);
 
 		wp_enqueue_script(
 			'tcaccordion-metabox',
@@ -187,9 +187,9 @@ class TCAccordion_Metabox {
 			array(
 				'maxItems'   => $this->get_max_items(),
 				'isPro'      => $this->is_pro(),
-				'addText'    => __( 'Add Item', 'tcaccordion' ),
-				'removeText' => __( 'Remove', 'tcaccordion' ),
-				'limitText'  => sprintf( __( 'Free version is limited to %d items.', 'tcaccordion' ), self::FREE_MAX_ITEMS ),
+				'addText'    => __( 'Add Item', 'accordions-wp' ),
+				'removeText' => __( 'Remove', 'accordions-wp' ),
+				'limitText'  => sprintf( __( 'Free version is limited to %d items.', 'accordions-wp' ), self::FREE_MAX_ITEMS ),
 			)
 		);
 	}
@@ -214,20 +214,20 @@ class TCAccordion_Metabox {
 				<li class="tc-tab-item <?php echo ( '#tab-accordion-content' === $active_tab ) ? 'current' : ''; ?>">
 					<a href="#tab-accordion-content" class="tc-tab-link">
 						<span class="dashicons dashicons-editor-justify"></span>
-						<?php esc_html_e( 'Accordion Content', 'tcaccordion' ); ?>
+						<?php esc_html_e( 'Accordion Content', 'accordions-wp' ); ?>
 					</a>
 				</li>
 				<li class="tc-tab-item <?php echo ( '#tab-accordion-settings' === $active_tab ) ? 'current' : ''; ?>">
 					<a href="#tab-accordion-settings" class="tc-tab-link">
 						<span class="dashicons dashicons-admin-generic"></span>
-						<?php esc_html_e( 'Accordion Settings', 'tcaccordion' ); ?>
+						<?php esc_html_e( 'Accordion Settings', 'accordions-wp' ); ?>
 					</a>
 				</li>
 
 				<li class="tc-tab-item <?php echo ( '#tab-accordion-preview' === $active_tab ) ? 'current' : ''; ?>">
 					<a href="#tab-accordion-preview" class="tc-tab-link">
 						<span class="dashicons dashicons-visibility"></span>
-						<?php esc_html_e( 'Live Preview', 'tcaccordion' ); ?>
+						<?php esc_html_e( 'Live Preview', 'accordions-wp' ); ?>
 					</a>
 				</li>
 			</ul>
@@ -245,33 +245,33 @@ class TCAccordion_Metabox {
 
 				<!-- TAB 3: LIVE PREVIEW TAB -->
 				<div id="tab-accordion-preview" class="tc-tab-content <?php echo ( '#tab-accordion-preview' === $active_tab ) ? 'active' : ''; ?>">
-				    <div class="tc-preview-tab-container" style="padding: 20px; background: #fff; border: 1px solid #c3c4c7; border-radius: 4px;">
-				        <div class="tc-preview-header" style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center;">
-				            <div>
-				                <h3 style="margin: 0; display: inline-block;">
-				                    <span class="dashicons dashicons-visibility" style="vertical-align: middle;"></span>
-				                    <?php esc_html_e( 'Exact Frontend Live Preview', 'tcaccordion' ); ?>
-				                </h3>
-				                <span class="description" style="margin-left: 10px;">
-				                    <?php esc_html_e( '(Renders full shortcodes, embeds, and actual frontend CSS)', 'tcaccordion' ); ?>
-				                </span>
-				            </div>
-				            <button type="button" id="tc-refresh-preview-btn" class="button button-secondary">
-				                <span class="dashicons dashicons-update" style="vertical-align: middle; line-height: 1.3;"></span>
-				                <?php esc_html_e( 'Refresh Preview', 'tcaccordion' ); ?>
-				            </button>
-				        </div>
+					<div class="tc-preview-tab-container" style="padding: 20px; background: #fff; border: 1px solid #c3c4c7; border-radius: 4px;">
+						<div class="tc-preview-header" style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center;">
+							<div>
+								<h3 style="margin: 0; display: inline-block;">
+									<span class="dashicons dashicons-visibility" style="vertical-align: middle;"></span>
+									<?php esc_html_e( 'Exact Frontend Live Preview', 'accordions-wp' ); ?>
+								</h3>
+								<span class="description" style="margin-left: 10px;">
+									<?php esc_html_e( '(Renders full shortcodes, embeds, and actual frontend CSS)', 'accordions-wp' ); ?>
+								</span>
+							</div>
+							<button type="button" id="tc-refresh-preview-btn" class="button button-secondary">
+								<span class="dashicons dashicons-update" style="vertical-align: middle; line-height: 1.3;"></span>
+								<?php esc_html_e( 'Refresh Preview', 'accordions-wp' ); ?>
+							</button>
+						</div>
 
-				        <!-- Preview Loader & Display Canvas -->
-				        <div id="tc-preview-loading" style="display: none; padding: 30px; text-align: center;">
-				            <span class="spinner is-active" style="float: none; margin: 0 5px 0 0;"></span>
-				            <?php esc_html_e( 'Rendering exact frontend preview...', 'tcaccordion' ); ?>
-				        </div>
+						<!-- Preview Loader & Display Canvas -->
+						<div id="tc-preview-loading" style="display: none; padding: 30px; text-align: center;">
+							<span class="spinner is-active" style="float: none; margin: 0 5px 0 0;"></span>
+							<?php esc_html_e( 'Rendering exact frontend preview...', 'accordions-wp' ); ?>
+						</div>
 
-				        <div id="tc-exact-preview-canvas" class="tc-frontend-preview-wrap">
-				            <!-- Exact Frontend HTML loaded here via AJAX -->
-				        </div>
-				    </div>
+						<div id="tc-exact-preview-canvas" class="tc-frontend-preview-wrap">
+							<!-- Exact Frontend HTML loaded here via AJAX -->
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -298,7 +298,7 @@ class TCAccordion_Metabox {
 
 			<p class="tcaccordion-actions">
 				<button type="button" class="button button-primary" id="tcaccordion-add" <?php echo count( $items ) >= $max_limit ? 'disabled="disabled"' : ''; ?>>
-					<?php esc_html_e( 'Add Accordion Item', 'tcaccordion' ); ?>
+					<?php esc_html_e( 'Add Accordion Item', 'accordions-wp' ); ?>
 				</button>
 			</p>
 
@@ -307,7 +307,7 @@ class TCAccordion_Metabox {
 					<?php
 					printf(
 						/* translators: %d: maximum number of items */
-						esc_html__( 'Free version is limited to %d items. Upgrade to Pro for unlimited items.', 'tcaccordion' ),
+						esc_html__( 'Free version is limited to %d items. Upgrade to Pro for unlimited items.', 'accordions-wp' ),
 						self::FREE_MAX_ITEMS
 					);
 					?>
@@ -352,6 +352,9 @@ class TCAccordion_Metabox {
 		$custom_accordion_title_line_height        = get_post_meta( $post->ID, 'custom_accordion_title_line_height', true );
 		$custom_accordion_content_line_height      = get_post_meta( $post->ID, 'custom_accordion_content_line_height', true );
 		$custom_accordion_content_letter_spacing   = get_post_meta( $post->ID, 'custom_accordion_content_letter_spacing', true );
+		// Retrieve existing icon color meta values
+		$custom_accordion_icon_color    = get_post_meta( $post->ID, 'custom_accordion_icon_color', true );
+		$custom_accordion_icon_bg_color = get_post_meta( $post->ID, 'custom_accordion_icon_bg_color', true );
 
 		// Retrieve current saved meta values (with defaults)
 		$auto_open_item = get_post_meta( $post->ID, '_tcacc_auto_open_item', true );
@@ -377,31 +380,29 @@ class TCAccordion_Metabox {
 
 
 		$is_pro_active  = tc_acc_is_pro();
-		
-		$is_pro = function_exists( 'tc_acc_is_pro' ) && tc_acc_is_pro();
 
 		if ( empty( $custom_accordion_columns_post_themes ) ) {
 			$custom_accordion_columns_post_themes = 'theme1';
 		}
 
 		$themes = array(
-			'theme1' => array( 'label' => __( 'Sun Flower', 'tcaccordion' ), 'img' => 'theme1.png' ),
-			'theme2' => array( 'label' => __( 'Orange', 'tcaccordion' ),     'img' => 'theme2.png' ),
-			'theme3' => array( 'label' => __( 'Pumpkin', 'tcaccordion' ),    'img' => 'theme3.png' ),
-			'theme4' => array( 'label' => __( 'Alizarin', 'tcaccordion' ),   'img' => 'theme4.png' ),
-			'theme5' => array( 'label' => __( 'Carrot', 'tcaccordion' ),     'img' => 'theme5.png' ),
+			'theme1' => array( 'label' => __( 'Sun Flower', 'accordions-wp' ), 'img' => 'theme1.png' ),
+			'theme2' => array( 'label' => __( 'Orange', 'accordions-wp' ),     'img' => 'theme2.png' ),
+			'theme3' => array( 'label' => __( 'Pumpkin', 'accordions-wp' ),    'img' => 'theme3.png' ),
+			'theme4' => array( 'label' => __( 'Alizarin', 'accordions-wp' ),   'img' => 'theme4.png' ),
+			'theme5' => array( 'label' => __( 'Carrot', 'accordions-wp' ),     'img' => 'theme5.png' ),
 			'theme-flat'     => array(
-				'label'  => __( 'Modern Flat', 'tcaccordion' ),
+				'label'  => __( 'Modern Flat', 'accordions-wp' ),
 				'img'    => 'theme-flat.png',
 				'is_pro' => true,
 			),
 			'theme-shadow'   => array(
-				'label'  => __( 'Soft Shadow', 'tcaccordion' ),
+				'label'  => __( 'Soft Shadow', 'accordions-wp' ),
 				'img'    => 'theme-shadow.png',
 				'is_pro' => true,
 			),
 			'theme-dark'     => array(
-				'label'  => __( 'Dark Mode', 'tcaccordion' ),
+				'label'  => __( 'Dark Mode', 'accordions-wp' ),
 				'img'    => 'theme-dark.png',
 				'is_pro' => true,
 			),
@@ -409,7 +410,7 @@ class TCAccordion_Metabox {
 		?>
 		<table class="form-table tc-settings-table">
 			<tr valign="top">
-				<th scope="row"><label><?php esc_html_e( 'Accordion Themes', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label><?php esc_html_e( 'Accordion Themes', 'accordions-wp' ); ?></label></th>
 				<td>
 					<div class="tc-theme-picker">
 						<?php foreach ( $themes as $key => $theme ) : ?>
@@ -434,7 +435,7 @@ class TCAccordion_Metabox {
 									</span>
 								</div>
 								<?php if ( $disabled ) : ?>
-									<span class="tc-pro-badge-overlay"><small class="tc-pro-badge"><?php esc_html_e( 'PRO', 'tcaccordion' ); ?></small></span>
+									<span class="tc-pro-badge-overlay"><small class="tc-pro-badge"><?php esc_html_e( 'PRO', 'accordions-wp' ); ?></small></span>
 								<?php endif; ?>
 							</label>
 						<?php endforeach; ?>
@@ -444,226 +445,242 @@ class TCAccordion_Metabox {
 
 			<!-- Auto Open Item Setting -->
 			<tr valign="top">
-			    <th scope="row">
-			        <label for="tcacc_auto_open_item">
-			            <?php esc_html_e( 'Auto Open Item', 'tcaccordion' ); ?>
-			            <?php if ( ! $is_pro_active ) : ?>
-			                <span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'tcaccordion' ); ?></span>
-			            <?php endif; ?>
-			        </label>
-			    </th>
-			    <td>
-			        <input 
-			            type="number" 
-			            name="_tcacc_auto_open_item" 
-			            id="tcacc_auto_open_item" 
-			            min="0" 
-			            max="25" 
-			            value="<?php echo esc_attr( $auto_open_item ); ?>" 
-			            <?php disabled( ! $is_pro_active ); ?> 
-			        />
-			        <p class="description">
-			            <?php esc_html_e( 'Specify which item number opens by default on load (e.g., 1 for 1st item, 0 to keep all closed).', 'tcaccordion' ); ?>
-			        </p>
-			    </td>
+				<th scope="row">
+					<label for="tcacc_auto_open_item">
+						<?php esc_html_e( 'Auto Open Item', 'accordions-wp' ); ?>
+						<?php if ( ! $is_pro_active ) : ?>
+							<span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'accordions-wp' ); ?></span>
+						<?php endif; ?>
+					</label>
+				</th>
+				<td>
+					<input 
+						type="number" 
+						name="_tcacc_auto_open_item" 
+						id="tcacc_auto_open_item" 
+						min="0" 
+						max="25" 
+						value="<?php echo esc_attr( $auto_open_item ); ?>" 
+						<?php disabled( ! $is_pro_active ); ?> 
+					/>
+					<p class="description">
+						<?php esc_html_e( 'Specify which item number opens by default on load (e.g., 1 for 1st item, 0 to keep all closed).', 'accordions-wp' ); ?>
+					</p>
+				</td>
 			</tr>
 
 			<tr>
-		        <th scope="row">
-		            <label for="tcacc_close_others"><?php esc_html_e( 'Close Other Items', 'tcaccordion' ); ?>
-			            <?php if ( ! $is_pro_active ) : ?>
-			                <span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'tcaccordion' ); ?></span>
-			            <?php endif; ?>		            	
-		            </label>
-		        </th>
-		        <td>
-		            <select name="_tcacc_close_others" id="tcacc_close_others" <?php disabled( ! $is_pro_active ); ?>>
-		                <option value="yes" <?php selected( $close_others, 'yes' ); ?>><?php esc_html_e( 'Yes (Close other open items automatically)', 'tcaccordion' ); ?></option>
-		                <option value="no" <?php selected( $close_others, 'no' ); ?>><?php esc_html_e( 'No (Allow multiple items to stay open)', 'tcaccordion' ); ?></option>
-		            </select>
-		            <?php if ( ! $is_pro_active ) : ?>
-		                <input type="hidden" name="_tcacc_close_others" value="<?php echo esc_attr( $close_others ); ?>" />
-		            <?php endif; ?>
-		            <p class="description">
-		                <?php esc_html_e( 'Choose whether opening a new item automatically closes all other items.', 'tcaccordion' ); ?>
-		            </p>
-		        </td>
-		    </tr>
+				<th scope="row">
+					<label for="tcacc_close_others"><?php esc_html_e( 'Close Other Items', 'accordions-wp' ); ?>
+						<?php if ( ! $is_pro_active ) : ?>
+							<span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'accordions-wp' ); ?></span>
+						<?php endif; ?>		            	
+					</label>
+				</th>
+				<td>
+					<select name="_tcacc_close_others" id="tcacc_close_others" <?php disabled( ! $is_pro_active ); ?>>
+						<option value="yes" <?php selected( $close_others, 'yes' ); ?>><?php esc_html_e( 'Yes (Close other open items automatically)', 'accordions-wp' ); ?></option>
+						<option value="no" <?php selected( $close_others, 'no' ); ?>><?php esc_html_e( 'No (Allow multiple items to stay open)', 'accordions-wp' ); ?></option>
+					</select>
+					<?php if ( ! $is_pro_active ) : ?>
+						<input type="hidden" name="_tcacc_close_others" value="<?php echo esc_attr( $close_others ); ?>" />
+					<?php endif; ?>
+					<p class="description">
+						<?php esc_html_e( 'Choose whether opening a new item automatically closes all other items.', 'accordions-wp' ); ?>
+					</p>
+				</td>
+			</tr>
 
 
 			<!-- Accordion Closeable Setting -->
 			<tr valign="top">
-			    <th scope="row">
-			        <label for="tcacc_is_closeable">
-			            <?php esc_html_e( 'Accordion Closeable', 'tcaccordion' ); ?>
-			            <?php if ( ! $is_pro_active ) : ?>
-			                <span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'tcaccordion' ); ?></span>
-			            <?php endif; ?>
-			        </label>
-			    </th>
-			    <td>
-			        <select name="_tcacc_is_closeable" id="tcacc_is_closeable" <?php disabled( ! $is_pro_active ); ?>>
-			            <option value="yes" <?php selected( $is_closeable, 'yes' ); ?>><?php esc_html_e( 'Yes (Items can be collapsed)', 'tcaccordion' ); ?></option>
-			            <option value="no" <?php selected( $is_closeable, 'no' ); ?>><?php esc_html_e( 'No (Always keep one item open)', 'tcaccordion' ); ?></option>
-			        </select>
-			        <p class="description">
-			            <?php esc_html_e( 'Choose whether clicking an open item can close it.', 'tcaccordion' ); ?>
-			        </p>
-			    </td>
+				<th scope="row">
+					<label for="tcacc_is_closeable">
+						<?php esc_html_e( 'Accordion Closeable', 'accordions-wp' ); ?>
+						<?php if ( ! $is_pro_active ) : ?>
+							<span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'accordions-wp' ); ?></span>
+						<?php endif; ?>
+					</label>
+				</th>
+				<td>
+					<select name="_tcacc_is_closeable" id="tcacc_is_closeable" <?php disabled( ! $is_pro_active ); ?>>
+						<option value="yes" <?php selected( $is_closeable, 'yes' ); ?>><?php esc_html_e( 'Yes (Items can be collapsed)', 'accordions-wp' ); ?></option>
+						<option value="no" <?php selected( $is_closeable, 'no' ); ?>><?php esc_html_e( 'No (Always keep one item open)', 'accordions-wp' ); ?></option>
+					</select>
+					<p class="description">
+						<?php esc_html_e( 'Choose whether clicking an open item can close it.', 'accordions-wp' ); ?>
+					</p>
+				</td>
 			</tr>
 
 			<tr>
-			    <th scope="row">
-			        <label for="tcacc_icon_style"><?php esc_html_e( 'Accordion Icon Style', 'tcaccordion' ); ?></label>
-			    </th>
-			    <td>
-			        <select name="_tcacc_icon_style" id="tcacc_icon_style">
-			            <option value="plus_minus" <?php selected( $icon_style, 'plus_minus' ); ?>><?php esc_html_e( 'Plus / Minus ( + / - )', 'tcaccordion' ); ?></option>
-			            <option value="chevron" <?php selected( $icon_style, 'chevron' ); ?>><?php esc_html_e( 'Chevron ( ❯ / 🔽 )', 'tcaccordion' ); ?></option>
-			            <option value="angle" <?php selected( $icon_style, 'angle' ); ?>><?php esc_html_e( 'Angle ( ❯ / 🔽 )', 'tcaccordion' ); ?></option>
-			            <option value="caret" <?php selected( $icon_style, 'caret' ); ?>><?php esc_html_e( 'Caret Solid ( ▶ / ▼ )', 'tcaccordion' ); ?></option>
-			            <option value="folder" <?php selected( $icon_style, 'folder' ); ?>><?php esc_html_e( 'Folder ( 📁 / 📂 )', 'tcaccordion' ); ?></option>
-			            <option value="none" <?php selected( $icon_style, 'none' ); ?>><?php esc_html_e( 'None (No Icon)', 'tcaccordion' ); ?></option>
-			        </select>
-			        <p class="description">
-			            <?php esc_html_e( 'Select the icon style for accordion open/close indicators.', 'tcaccordion' ); ?>
-			        </p>
-			    </td>
+				<th scope="row">
+					<label for="tcacc_icon_style"><?php esc_html_e( 'Accordion Icon Style', 'accordions-wp' ); ?></label>
+				</th>
+				<td>
+					<select name="_tcacc_icon_style" id="tcacc_icon_style">
+						<option value="plus_minus" <?php selected( $icon_style, 'plus_minus' ); ?>><?php esc_html_e( 'Plus / Minus ( + / - )', 'accordions-wp' ); ?></option>
+						<option value="chevron" <?php selected( $icon_style, 'chevron' ); ?>><?php esc_html_e( 'Chevron ( ❯ / 🔽 )', 'accordions-wp' ); ?></option>
+						<option value="angle" <?php selected( $icon_style, 'angle' ); ?>><?php esc_html_e( 'Angle ( ❯ / 🔽 )', 'accordions-wp' ); ?></option>
+						<option value="caret" <?php selected( $icon_style, 'caret' ); ?>><?php esc_html_e( 'Caret Solid ( ▶ / ▼ )', 'accordions-wp' ); ?></option>
+						<option value="folder" <?php selected( $icon_style, 'folder' ); ?>><?php esc_html_e( 'Folder ( 📁 / 📂 )', 'accordions-wp' ); ?></option>
+						<option value="none" <?php selected( $icon_style, 'none' ); ?>><?php esc_html_e( 'None (No Icon)', 'accordions-wp' ); ?></option>
+					</select>
+					<p class="description">
+						<?php esc_html_e( 'Select the icon style for accordion open/close indicators.', 'accordions-wp' ); ?>
+					</p>
+				</td>
 			</tr>
 
 			<!-- Open Trigger Event -->
 			<tr valign="top">
-			    <th scope="row">
-			        <label for="_tcacc_open_event"><?php esc_html_e( 'Open Event', 'tcaccordion' ); ?>
-			            <?php if ( ! $is_pro_active ) : ?>
-			                <span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'tcaccordion' ); ?></span>
-			            <?php endif; ?>
-			        </label>
-			    </th>
-			    <td>
-			        <select name="_tcacc_open_event" id="_tcacc_open_event" <?php disabled( ! $is_pro_active ); ?>>
-			            <option value="click" <?php selected( $open_event, 'click' ); ?>><?php esc_html_e( 'On Click', 'tcaccordion' ); ?></option>
-			            <option value="hover" <?php selected( $open_event, 'hover' ); ?>><?php esc_html_e( 'On Mouse Hover', 'tcaccordion' ); ?></option>
-			        </select>
-			        <p class="description"><?php esc_html_e( 'Select hover triggers.', 'tcaccordion' ); ?></p>
-			    </td>
+				<th scope="row">
+					<label for="_tcacc_open_event"><?php esc_html_e( 'Open Event', 'accordions-wp' ); ?>
+						<?php if ( ! $is_pro_active ) : ?>
+							<span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'accordions-wp' ); ?></span>
+						<?php endif; ?>
+					</label>
+				</th>
+				<td>
+					<select name="_tcacc_open_event" id="_tcacc_open_event" <?php disabled( ! $is_pro_active ); ?>>
+						<option value="click" <?php selected( $open_event, 'click' ); ?>><?php esc_html_e( 'On Click', 'accordions-wp' ); ?></option>
+						<option value="hover" <?php selected( $open_event, 'hover' ); ?>><?php esc_html_e( 'On Mouse Hover', 'accordions-wp' ); ?></option>
+					</select>
+					<p class="description"><?php esc_html_e( 'Select hover triggers.', 'accordions-wp' ); ?></p>
+				</td>
 			</tr>
 
 			<!-- Animation Speed Slider -->
 			<tr valign="top">
-			    <th scope="row">
-			        <label for="_tcacc_anim_speed"><?php esc_html_e( 'Animation Speed (ms)', 'tcaccordion' ); ?>
-			            <?php if ( ! $is_pro_active ) : ?>
-			                <span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'tcaccordion' ); ?></span>
-			            <?php endif; ?>
-			        </label>
-			    </th>
-			    <td>
-			        <input type="range" name="_tcacc_anim_speed" id="_tcacc_anim_speed" min="100" max="1000" step="50" value="<?php echo esc_attr( $anim_speed ); ?>" <?php disabled( ! $is_pro_active ); ?> oninput="this.nextElementSibling.value = this.value + 'ms'">
-			        <output><?php echo esc_html( $anim_speed ); ?>ms</output>
-			        <p class="description">
-			            <?php esc_html_e( 'Customize accordion slide animation speeds.', 'tcaccordion' ); ?>
-			        </p>
-			    </td>
+				<th scope="row">
+					<label for="_tcacc_anim_speed"><?php esc_html_e( 'Animation Speed (ms)', 'accordions-wp' ); ?>
+						<?php if ( ! $is_pro_active ) : ?>
+							<span class="tcacc-pro-badge" style="color: #d63638; font-size: 11px; font-weight: 600; margin-left: 4px;"><?php esc_html_e( '(PRO)', 'accordions-wp' ); ?></span>
+						<?php endif; ?>
+					</label>
+				</th>
+				<td>
+					<input type="range" name="_tcacc_anim_speed" id="_tcacc_anim_speed" min="100" max="1000" step="50" value="<?php echo esc_attr( $anim_speed ); ?>" <?php disabled( ! $is_pro_active ); ?> oninput="this.nextElementSibling.value = this.value + 'ms'">
+					<output><?php echo esc_html( $anim_speed ); ?>ms</output>
+					<p class="description">
+						<?php esc_html_e( 'Customize accordion slide animation speeds.', 'accordions-wp' ); ?>
+					</p>
+				</td>
 			</tr>
 
 			<!-- Title BG Color -->
 			<tr valign="top">
-				<th scope="row"><label for="custom-accordion-title-bg-color"><?php esc_html_e( 'Title BG Color', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom-accordion-title-bg-color"><?php esc_html_e( 'Title BG Color', 'accordions-wp' ); ?></label></th>
 				<td><input name="custom_accordion_title_bg_color" class="tc-color-field" id="custom-accordion-title-bg-color" type="text" value="<?php echo esc_attr( $custom_accordion_title_bg_color ); ?>" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom-accordion-title-font-color"><?php esc_html_e( 'Title Font Color', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom-accordion-title-font-color"><?php esc_html_e( 'Title Font Color', 'accordions-wp' ); ?></label></th>
 				<td><input name="custom_accordion_title_font_color" class="tc-color-field" id="custom-accordion-title-font-color" type="text" value="<?php echo esc_attr( $custom_accordion_title_font_color ); ?>" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom_accordion_title_font_size"><?php esc_html_e( 'Title Font Size', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom_accordion_title_font_size"><?php esc_html_e( 'Title Font Size', 'accordions-wp' ); ?></label></th>
 				<td><input type="number" name="custom_accordion_title_font_size" id="custom_accordion_title_font_size" value="<?php echo ! empty( $custom_accordion_title_font_size ) ? esc_attr( $custom_accordion_title_font_size ) : '18'; ?>"> px</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom_accordion_title_line_height"><?php esc_html_e( 'Title Line Height', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom_accordion_title_line_height"><?php esc_html_e( 'Title Line Height', 'accordions-wp' ); ?></label></th>
 				<td><input type="number" step="0.1" name="custom_accordion_title_line_height" id="custom_accordion_title_line_height" min="0.8" max="3" value="<?php echo ! empty( $custom_accordion_title_line_height ) ? esc_attr( $custom_accordion_title_line_height ) : '1.4'; ?>"> (e.g. 1.4)</td>
 			</tr>
 
-<tr valign="top">
-    <th scope="row">
-        <label><?php esc_html_e( 'Title Text Position', 'tcaccordion' ); ?></label>
-    </th>
-    <td>
-        <div class="tcacc-icon-selector">
-            <label class="tcacc-icon-btn <?php echo ( 'left' === $_tpaccpro_wiki_acc_themes_title_position ) ? 'active' : ''; ?>">
-                <input type="radio" name="_tpaccpro_wiki_acc_themes_title_position" value="left" <?php checked( $_tpaccpro_wiki_acc_themes_title_position, 'left' ); ?>>
-                <span class="dashicons dashicons-editor-alignleft"></span>
-            </label>
+			<tr valign="top">
+				<th scope="row">
+					<label><?php esc_html_e( 'Title Text Position', 'accordions-wp' ); ?></label>
+				</th>
+				<td>
+					<div class="tcacc-icon-selector">
+						<label class="tcacc-icon-btn <?php echo ( 'left' === $_tpaccpro_wiki_acc_themes_title_position ) ? 'active' : ''; ?>">
+							<input type="radio" name="_tpaccpro_wiki_acc_themes_title_position" value="left" <?php checked( $_tpaccpro_wiki_acc_themes_title_position, 'left' ); ?>>
+							<span class="dashicons dashicons-editor-alignleft"></span>
+						</label>
 
-            <label class="tcacc-icon-btn <?php echo ( 'center' === $_tpaccpro_wiki_acc_themes_title_position ) ? 'active' : ''; ?>">
-                <input type="radio" name="_tpaccpro_wiki_acc_themes_title_position" value="center" <?php checked( $_tpaccpro_wiki_acc_themes_title_position, 'center' ); ?>>
-                <span class="dashicons dashicons-editor-aligncenter"></span>
-            </label>
+						<label class="tcacc-icon-btn <?php echo ( 'center' === $_tpaccpro_wiki_acc_themes_title_position ) ? 'active' : ''; ?>">
+							<input type="radio" name="_tpaccpro_wiki_acc_themes_title_position" value="center" <?php checked( $_tpaccpro_wiki_acc_themes_title_position, 'center' ); ?>>
+							<span class="dashicons dashicons-editor-aligncenter"></span>
+						</label>
 
-            <label class="tcacc-icon-btn <?php echo ( 'right' === $_tpaccpro_wiki_acc_themes_title_position ) ? 'active' : ''; ?>">
-                <input type="radio" name="_tpaccpro_wiki_acc_themes_title_position" value="right" <?php checked( $_tpaccpro_wiki_acc_themes_title_position, 'right' ); ?>>
-                <span class="dashicons dashicons-editor-alignright"></span>
-            </label>
-        </div>
-    </td>
-</tr>
+						<label class="tcacc-icon-btn <?php echo ( 'right' === $_tpaccpro_wiki_acc_themes_title_position ) ? 'active' : ''; ?>">
+							<input type="radio" name="_tpaccpro_wiki_acc_themes_title_position" value="right" <?php checked( $_tpaccpro_wiki_acc_themes_title_position, 'right' ); ?>>
+							<span class="dashicons dashicons-editor-alignright"></span>
+						</label>
+					</div>
+				</td>
+			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="_tpaccpro_wiki_acc_themes_show_hide_icons"><?php esc_html_e( 'Show/Hide Icon', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="_tpaccpro_wiki_acc_themes_show_hide_icons"><?php esc_html_e( 'Show/Hide Icon', 'accordions-wp' ); ?></label></th>
 				<td>
 					<select name="_tpaccpro_wiki_acc_themes_show_hide_icons" id="_tpaccpro_wiki_acc_themes_show_hide_icons">
-						<option value="1" <?php selected( $_tpaccpro_wiki_acc_themes_show_hide_icons, '1' ); ?>><?php esc_html_e( 'Show', 'tcaccordion' ); ?></option>
-						<option value="2" <?php selected( $_tpaccpro_wiki_acc_themes_show_hide_icons, '2' ); ?>><?php esc_html_e( 'Hide', 'tcaccordion' ); ?></option>
+						<option value="1" <?php selected( $_tpaccpro_wiki_acc_themes_show_hide_icons, '1' ); ?>><?php esc_html_e( 'Show', 'accordions-wp' ); ?></option>
+						<option value="2" <?php selected( $_tpaccpro_wiki_acc_themes_show_hide_icons, '2' ); ?>><?php esc_html_e( 'Hide', 'accordions-wp' ); ?></option>
 					</select>
 				</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="_tpaccpro_wiki_acc_themes_icon_position"><?php esc_html_e( 'Icon Position', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="_tpaccpro_wiki_acc_themes_icon_position"><?php esc_html_e( 'Icon Position', 'accordions-wp' ); ?></label></th>
 				<td>
 					<select name="_tpaccpro_wiki_acc_themes_icon_position" id="_tpaccpro_wiki_acc_themes_icon_position">
-						<option value="1" <?php selected( $_tpaccpro_wiki_acc_themes_icon_position, '1' ); ?>><?php esc_html_e( 'Left', 'tcaccordion' ); ?></option>
-						<option value="2" <?php selected( $_tpaccpro_wiki_acc_themes_icon_position, '2' ); ?>><?php esc_html_e( 'Right', 'tcaccordion' ); ?></option>
+						<option value="1" <?php selected( $_tpaccpro_wiki_acc_themes_icon_position, '1' ); ?>><?php esc_html_e( 'Left', 'accordions-wp' ); ?></option>
+						<option value="2" <?php selected( $_tpaccpro_wiki_acc_themes_icon_position, '2' ); ?>><?php esc_html_e( 'Right', 'accordions-wp' ); ?></option>
 					</select>
 				</td>
 			</tr>
 
+			<!-- Icon Color Field -->
 			<tr valign="top">
-				<th scope="row"><label for="custom-accordion-content-bg-color"><?php esc_html_e( 'Content BG Color', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom-accordion-icon-color"><?php esc_html_e( 'Icon Color', 'accordions-wp' ); ?></label></th>
+				<td>
+					<input name="custom_accordion_icon_color" class="tc-color-field" id="custom-accordion-icon-color" type="text" value="<?php echo esc_attr( $custom_accordion_icon_color ); ?>" />
+				</td>
+			</tr>
+
+			<!-- Icon Background Color Field -->
+			<tr valign="top">
+				<th scope="row"><label for="custom-accordion-icon-bg-color"><?php esc_html_e( 'Icon BG Color', 'accordions-wp' ); ?></label></th>
+				<td>
+					<input name="custom_accordion_icon_bg_color" class="tc-color-field" id="custom-accordion-icon-bg-color" type="text" value="<?php echo esc_attr( $custom_accordion_icon_bg_color ); ?>" />
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<th scope="row"><label for="custom-accordion-content-bg-color"><?php esc_html_e( 'Content BG Color', 'accordions-wp' ); ?></label></th>
 				<td><input name="custom_accordion_content_bg_color" class="tc-color-field" id="custom-accordion-content-bg-color" type="text" value="<?php echo esc_attr( $custom_accordion_content_bg_color ); ?>" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom-accordion-content-font-color"><?php esc_html_e( 'Content Font Color', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom-accordion-content-font-color"><?php esc_html_e( 'Content Font Color', 'accordions-wp' ); ?></label></th>
 				<td><input name="custom_accordion_content_font_color" class="tc-color-field" id="custom-accordion-content-font-color" type="text" value="<?php echo esc_attr( $custom_accordion_content_font_color ); ?>" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom_accordion_content_font_size"><?php esc_html_e( 'Content Font Size', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom_accordion_content_font_size"><?php esc_html_e( 'Content Font Size', 'accordions-wp' ); ?></label></th>
 				<td><input type="number" name="custom_accordion_content_font_size" id="custom_accordion_content_font_size" value="<?php echo ! empty( $custom_accordion_content_font_size ) ? esc_attr( $custom_accordion_content_font_size ) : '16'; ?>"> px</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom_accordion_content_line_height"><?php esc_html_e( 'Content Line Height', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom_accordion_content_line_height"><?php esc_html_e( 'Content Line Height', 'accordions-wp' ); ?></label></th>
 				<td><input type="number" step="0.1" name="custom_accordion_content_line_height" id="custom_accordion_content_line_height" min="0.8" max="3" value="<?php echo ! empty( $custom_accordion_content_line_height ) ? esc_attr( $custom_accordion_content_line_height ) : '1.6'; ?>"> (e.g. 1.6)</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom_accordion_content_letter_spacing"><?php esc_html_e( 'Content Letter Spacing', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom_accordion_content_letter_spacing"><?php esc_html_e( 'Content Letter Spacing', 'accordions-wp' ); ?></label></th>
 				<td><input type="number" step="0.1" name="custom_accordion_content_letter_spacing" id="custom_accordion_content_letter_spacing" min="0" max="10" value="<?php echo ! empty( $custom_accordion_content_letter_spacing ) ? esc_attr( $custom_accordion_content_letter_spacing ) : '0'; ?>"> px</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="_tpaccpro_wiki_acc_theme_content_margin"><?php esc_html_e( 'Margin Between Accordion', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="_tpaccpro_wiki_acc_theme_content_margin"><?php esc_html_e( 'Margin Between Accordion', 'accordions-wp' ); ?></label></th>
 				<td><input type="number" name="_tpaccpro_wiki_acc_theme_content_margin" id="_tpaccpro_wiki_acc_theme_content_margin" value="<?php echo ! empty( $_tpaccpro_wiki_acc_theme_content_margin ) ? esc_attr( $_tpaccpro_wiki_acc_theme_content_margin ) : '5'; ?>"> px</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="custom_accordion_content_padding"><?php esc_html_e( 'Content Padding', 'tcaccordion' ); ?></label></th>
+				<th scope="row"><label for="custom_accordion_content_padding"><?php esc_html_e( 'Content Padding', 'accordions-wp' ); ?></label></th>
 				<td><input type="number" name="custom_accordion_content_padding" id="custom_accordion_content_padding" value="<?php echo ! empty( $custom_accordion_content_padding ) ? esc_attr( $custom_accordion_content_padding ) : '12'; ?>"> px</td>
 			</tr>
 		</table>
@@ -758,7 +775,7 @@ class TCAccordion_Metabox {
 			<div class="tcaccordion-header">
 				<span class="dashicons dashicons-menu"></span>
 				<strong class="tcaccordion-label">
-					<?php echo esc_html( $title ? $title : __( 'New Accordion', 'tcaccordion' ) ); ?>
+					<?php echo esc_html( $title ? $title : __( 'New Accordion', 'accordions-wp' ) ); ?>
 				</strong>
 				<button type="button" class="button-link tcaccordion-toggle">
 					<span class="dashicons dashicons-arrow-down-alt2"></span>
@@ -767,7 +784,7 @@ class TCAccordion_Metabox {
 
 			<div class="tcaccordion-body">
 				<p>
-					<label><strong><?php esc_html_e( 'Accordion Title', 'tcaccordion' ); ?></strong></label>
+					<label><strong><?php esc_html_e( 'Accordion Title', 'accordions-wp' ); ?></strong></label>
 					<input
 						type="text"
 						class="widefat tcaccordion-title"
@@ -777,7 +794,7 @@ class TCAccordion_Metabox {
 				</p>
 
 				<p>
-					<label><strong><?php esc_html_e( 'Description', 'tcaccordion' ); ?></strong></label>
+					<label><strong><?php esc_html_e( 'Description', 'accordions-wp' ); ?></strong></label>
 					<?php
 					wp_editor(
 						$content,
@@ -795,7 +812,7 @@ class TCAccordion_Metabox {
 
 				<p>
 					<button type="button" class="button tcaccordion-remove">
-						<?php esc_html_e( 'Remove', 'tcaccordion' ); ?>
+						<?php esc_html_e( 'Remove', 'accordions-wp' ); ?>
 					</button>
 				</p>
 			</div>
@@ -832,25 +849,27 @@ class TCAccordion_Metabox {
 		} else {
 			$items            = array();
 			$max_limit        = $this->get_max_items();
-			$raw_posted_items = wp_unslash( $_POST[ self::META_KEY ] );
+			$raw_posted_items = wp_unslash( $_POST[ self::META_KEY ] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized per key/value inside foreach.
 
-			foreach ( array_values( $raw_posted_items ) as $item ) {
-				if ( ! is_array( $item ) ) {
-					continue;
-				}
+			if ( is_array( $raw_posted_items ) ) {
+				foreach ( array_values( $raw_posted_items ) as $item ) {
+					if ( ! is_array( $item ) ) {
+						continue;
+					}
 
-				if ( count( $items ) >= $max_limit ) {
-					break;
-				}
+					if ( count( $items ) >= $max_limit ) {
+						break;
+					}
 
-				$title   = isset( $item['title'] ) ? sanitize_text_field( $item['title'] ) : '';
-				$details = isset( $item['description'] ) ? wp_kses_post( $item['description'] ) : '';
+					$title   = isset( $item['title'] ) ? sanitize_text_field( $item['title'] ) : '';
+					$details = isset( $item['description'] ) ? wp_kses_post( $item['description'] ) : '';
 
-				if ( '' !== $title || '' !== $details ) {
-					$items[] = array(
-						'title'       => $title,
-						'description' => $details,
-					);
+					if ( '' !== $title || '' !== $details ) {
+						$items[] = array(
+							'title'       => $title,
+							'description' => $details,
+						);
+					}
 				}
 			}
 
@@ -883,56 +902,70 @@ class TCAccordion_Metabox {
 			'custom_accordion_title_font_color'         => 'sanitize_hex_color',
 			'custom_accordion_content_bg_color'         => 'sanitize_hex_color',
 			'custom_accordion_content_font_color'       => 'sanitize_hex_color',
+			'custom_accordion_icon_color'               => 'sanitize_hex_color', // Added Icon Color
+			'custom_accordion_icon_bg_color'            => 'sanitize_hex_color', // Added Icon BG Color
 		);
 
 		foreach ( $style_fields as $field => $sanitize_callback ) {
 			if ( isset( $_POST[ $field ] ) ) {
-				$val = call_user_func( $sanitize_callback, $_POST[ $field ] );
+				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Input is unslashed first and sanitized via the specific callback below.
+				$raw_val = wp_unslash( $_POST[ $field ] );
+
+				if ( 'sanitize_hex_color' === $sanitize_callback ) {
+					$val = sanitize_hex_color( $raw_val );
+				} elseif ( 'sanitize_text_field' === $sanitize_callback ) {
+					$val = sanitize_text_field( $raw_val );
+				} elseif ( is_callable( $sanitize_callback ) ) {
+					$val = call_user_func( $sanitize_callback, $raw_val );
+				} else {
+					$val = sanitize_text_field( $raw_val );
+				}
+
 				update_post_meta( $post_id, $field, $val );
 			}
 		}
 
-if ( isset( $_POST['_tcacc_icon_style'] ) ) {
-    $icon_style = sanitize_text_field( wp_unslash( $_POST['_tcacc_icon_style'] ) );
-    $allowed_styles = array( 'plus_minus', 'chevron', 'angle', 'caret', 'folder', 'none' );
-    $icon_style = in_array( $icon_style, $allowed_styles, true ) ? $icon_style : 'plus_minus';
-    update_post_meta( $post_id, '_tcacc_icon_style', $icon_style );
-}
+		if ( isset( $_POST['_tcacc_icon_style'] ) ) {
+			$icon_style     = sanitize_text_field( wp_unslash( $_POST['_tcacc_icon_style'] ) );
+			$allowed_styles = array( 'plus_minus', 'chevron', 'angle', 'caret', 'folder', 'none' );
+			$icon_style     = in_array( $icon_style, $allowed_styles, true ) ? $icon_style : 'plus_minus';
+			update_post_meta( $post_id, '_tcacc_icon_style', $icon_style );
+		}
 
 		// Only process and update Pro fields if user has an active Pro license
 		// 4. Save Pro Settings (Only if Pro is active)
-	    if ( function_exists( 'tc_acc_is_pro' ) && tc_acc_is_pro() ) {
+		if ( function_exists( 'tc_acc_is_pro' ) && tc_acc_is_pro() ) {
 
-	        // Auto Open Item (Sanitize Integer)
-	        if ( isset( $_POST['_tcacc_auto_open_item'] ) ) {
-	            $auto_open = absint( $_POST['_tcacc_auto_open_item'] );
-	            update_post_meta( $post_id, '_tcacc_auto_open_item', $auto_open );
-	        }
+			// Auto Open Item (Sanitize Integer)
+			if ( isset( $_POST['_tcacc_auto_open_item'] ) ) {
+				$auto_open = absint( wp_unslash( $_POST['_tcacc_auto_open_item'] ) );
+				update_post_meta( $post_id, '_tcacc_auto_open_item', $auto_open );
+			}
 
-	        // Accordion Closeable (Sanitize Enum)
-	        if ( isset( $_POST['_tcacc_is_closeable'] ) ) {
-	            $closeable = sanitize_text_field( wp_unslash( $_POST['_tcacc_is_closeable'] ) );
-	            $closeable = in_array( $closeable, array( 'yes', 'no' ), true ) ? $closeable : 'yes';
-	            update_post_meta( $post_id, '_tcacc_is_closeable', $closeable );
-	        }
+			// Accordion Closeable (Sanitize Enum)
+			if ( isset( $_POST['_tcacc_is_closeable'] ) ) {
+				$closeable = sanitize_text_field( wp_unslash( $_POST['_tcacc_is_closeable'] ) );
+				$closeable = in_array( $closeable, array( 'yes', 'no' ), true ) ? $closeable : 'yes';
+				update_post_meta( $post_id, '_tcacc_is_closeable', $closeable );
+			}
 
-	        // Close Other Items (Sanitize Enum)
-	        if ( isset( $_POST['_tcacc_close_others'] ) ) {
-	            $close_others = sanitize_text_field( wp_unslash( $_POST['_tcacc_close_others'] ) );
-	            $close_others = in_array( $close_others, array( 'yes', 'no' ), true ) ? $close_others : 'yes';
-	            update_post_meta( $post_id, '_tcacc_close_others', $close_others );
-	        }
+			// Close Other Items (Sanitize Enum)
+			if ( isset( $_POST['_tcacc_close_others'] ) ) {
+				$close_others = sanitize_text_field( wp_unslash( $_POST['_tcacc_close_others'] ) );
+				$close_others = in_array( $close_others, array( 'yes', 'no' ), true ) ? $close_others : 'yes';
+				update_post_meta( $post_id, '_tcacc_close_others', $close_others );
+			}
 
 			if ( isset( $_POST['_tcacc_open_event'] ) ) {
-			    $event = sanitize_text_field( wp_unslash( $_POST['_tcacc_open_event'] ) );
-			    update_post_meta( $post_id, '_tcacc_open_event', in_array( $event, array( 'click', 'hover' ), true ) ? $event : 'click' );
+				$event = sanitize_text_field( wp_unslash( $_POST['_tcacc_open_event'] ) );
+				update_post_meta( $post_id, '_tcacc_open_event', in_array( $event, array( 'click', 'hover' ), true ) ? $event : 'click' );
 			}
 
 			if ( isset( $_POST['_tcacc_anim_speed'] ) ) {
-			    update_post_meta( $post_id, '_tcacc_anim_speed', absint( $_POST['_tcacc_anim_speed'] ) );
+				update_post_meta( $post_id, '_tcacc_anim_speed', absint( wp_unslash( $_POST['_tcacc_anim_speed'] ) ) );
 			}
 
-	    }
+		}
 
 	}
 
@@ -942,10 +975,10 @@ if ( isset( $_POST['_tcacc_icon_style'] ) ) {
 	public function register_admin_columns( $columns ) {
 		return array(
 			'cb'          => '<input type="checkbox" />',
-			'title'       => __( 'Shortcode Name', 'tcaccordion' ),
-			'shortcode'   => __( 'Shortcode', 'tcaccordion' ),
-			'doshortcode' => __( 'Template Shortcode', 'tcaccordion' ),
-			'date'        => __( 'Date', 'tcaccordion' ),
+			'title'       => __( 'Shortcode Name', 'accordions-wp' ),
+			'shortcode'   => __( 'Shortcode', 'accordions-wp' ),
+			'doshortcode' => __( 'Template Shortcode', 'accordions-wp' ),
+			'date'        => __( 'Date', 'accordions-wp' ),
 		);
 	}
 
@@ -975,11 +1008,11 @@ if ( isset( $_POST['_tcacc_icon_style'] ) ) {
 		<div style="padding: 15px; border: 1px solid #ddd; background: #f9f9f9; margin-top: 15px;">
 			<div style="display: flex; gap: 20px;">
 				<div style="width: 50%;">
-					<p><strong><?php esc_html_e( 'Shortcode', 'tcaccordion' ); ?>:</strong> <span id="tc-sc-notice" style="color: green; display: none; margin-left: 10px;"><?php esc_html_e( 'Copied!', 'tcaccordion' ); ?></span></p>
+					<p><strong><?php esc_html_e( 'Shortcode', 'accordions-wp' ); ?>:</strong> <span id="tc-sc-notice" style="color: green; display: none; margin-left: 10px;"><?php esc_html_e( 'Copied!', 'accordions-wp' ); ?></span></p>
 					<input type="text" style="width:100%; cursor:pointer;" value="<?php echo esc_attr( $shortcode ); ?>" readonly onclick="tcCopyNotice(this, 'tc-sc-notice')" />
 				</div>
 				<div style="width: 50%;">
-					<p><strong><?php esc_html_e( 'PHP Code', 'tcaccordion' ); ?>:</strong> <span id="tc-php-notice" style="color: green; display: none; margin-left: 10px;"><?php esc_html_e( 'Copied!', 'tcaccordion' ); ?></span></p>
+					<p><strong><?php esc_html_e( 'PHP Code', 'accordions-wp' ); ?>:</strong> <span id="tc-php-notice" style="color: green; display: none; margin-left: 10px;"><?php esc_html_e( 'Copied!', 'accordions-wp' ); ?></span></p>
 					<input type="text" style="width:100%; cursor:pointer;" value="<?php echo esc_attr( $php_code ); ?>" readonly onclick="tcCopyNotice(this, 'tc-php-notice')" />
 				</div>
 			</div>
@@ -1014,47 +1047,48 @@ if ( isset( $_POST['_tcacc_icon_style'] ) ) {
 	 * AJAX Handler to generate exact live frontend markup from unsaved form data.
 	 */
 	public function ajax_render_live_preview() {
-	    check_ajax_referer( 'tcaccordion_save_action', 'security' );
+		check_ajax_referer( 'tcaccordion_save_action', 'security' );
 
-	    if ( ! current_user_can( 'edit_posts' ) ) {
-	        wp_send_json_error( array( 'message' => __( 'Permission denied.', 'tcaccordion' ) ) );
-	    }
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'accordions-wp' ) ) );
+		}
 
-	    $post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+		$post_id = isset( $_POST['post_id'] ) ? absint( wp_unslash( $_POST['post_id'] ) ) : 0;
 
-	    // Parse serialized form data string sent from JavaScript
-	    $posted_meta = array();
-	    if ( ! empty( $_POST['form_data'] ) ) {
-	        wp_parse_str( $_POST['form_data'], $posted_meta );
-	    }
+		// Parse serialized form data string sent from JavaScript
+		$posted_meta = array();
+		if ( ! empty( $_POST['form_data'] ) ) {
+			$raw_form_data = sanitize_text_field( wp_unslash( $_POST['form_data'] ) );
+			wp_parse_str( $raw_form_data, $posted_meta );
+		}
 
-	    // Initialize the renderer
-	    $renderer = new TCAccordion_Renderer( $post_id );
+		// Initialize the renderer
+		$renderer = new TCAccordion_Renderer( $post_id );
 
-	    // Pass live unsaved form fields to the renderer instance
-	    if ( ! empty( $posted_meta ) && method_exists( $renderer, 'set_preview_data' ) ) {
-	        $renderer->set_preview_data( $posted_meta );
-	    }
+		// Pass live unsaved form fields to the renderer instance
+		if ( ! empty( $posted_meta ) && method_exists( $renderer, 'set_preview_data' ) ) {
+			$renderer->set_preview_data( $posted_meta );
+		}
 
-	    $html = $renderer->render();
+		$html = $renderer->render();
 
-	    wp_send_json_success( array( 'html' => $html ) );
+		wp_send_json_success( array( 'html' => $html ) );
 	}
 
 	/**
-     * Enqueue Admin Scripts & Styles for Preview
-     */
-    public function enqueue_admin_preview_styles( $hook ) {
-        if ( 'post.php' !== $hook && 'post-new.php' !== $hook ) {
-            return;
-        }
+	 * Enqueue Admin Scripts & Styles for Preview
+	 */
+	public function enqueue_admin_preview_styles( $hook ) {
+		if ( 'post.php' !== $hook && 'post-new.php' !== $hook ) {
+			return;
+		}
 
-        $screen = get_current_screen();
-        if ( is_object( $screen ) && 'accordion_tp' === $screen->post_type ) {
-            wp_enqueue_style( 'tcaccordion-responsive', TCACCORDION_PLUGIN_URL . 'assets/css/responsive-accordion.css', array(), TCACCORDION_VERSION );
-            wp_enqueue_style( 'tcaccordion-style', TCACCORDION_PLUGIN_URL . 'assets/css/style.css', array(), TCACCORDION_VERSION );
-        }
-    }
+		$screen = get_current_screen();
+		if ( is_object( $screen ) && 'accordion_tp' === $screen->post_type ) {
+			wp_enqueue_style( 'tcaccordion-responsive', TCACCORDION_PLUGIN_URL . 'assets/css/responsive-accordion.css', array(), TCACCORDION_VERSION );
+			wp_enqueue_style( 'tcaccordion-style', TCACCORDION_PLUGIN_URL . 'assets/css/style.css', array(), TCACCORDION_VERSION );
+		}
+	}
 
 }
 

@@ -20,9 +20,9 @@
 .responsive-accordion li .responsive-accordion-head {
 	cursor: pointer;
 }
-.responsive-accordion li .responsive-accordion-head.active {
+/*.responsive-accordion li .responsive-accordion-head.active {
 	font-weight: normal;
-}
+}*/
 
 /*Themes theme1*/
 .responsive-accordion-default.responsive-accordion li .responsive-accordion-head {
