@@ -69,7 +69,7 @@
     display: none;
 }
 .tcaccordion-item:first-child .tcaccordion-body {
-    display: block; /* প্রথম এলিমেন্ট ডিফল্টভাবে খোলা থাকবে */
+    display: block;
 }
 .tcaccordion-body label {
     display: block;

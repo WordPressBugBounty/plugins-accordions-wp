@@ -138,7 +138,7 @@ class TCAccordion_Metabox {
 			'tcaccordion-metabox',
 			TCACCORDION_PLUGIN_URL . 'admin/css/accordion-metabox.css',
 			array(),
-			'3.0.7'
+			TCACCORDION_VERSION,
 		);
 
 		wp_enqueue_script( 'jquery-ui-sortable' );
@@ -165,7 +165,7 @@ class TCAccordion_Metabox {
 			'tcaccordion-metabox',
 			TCACCORDION_PLUGIN_URL . 'admin/js/accordion-metabox.js',
 			array( 'jquery', 'jquery-ui-sortable' ),
-			'3.0.7',
+			TCACCORDION_VERSION,
 			true
 		);
 
@@ -173,7 +173,7 @@ class TCAccordion_Metabox {
 			'tcaccordion-metabox',
 			'tcAccordion',
 			array(
-				'maxItems'   => $this->get_max_items(),
+				'maxItems'   => $this->get_max_items() > 0 ? $this->get_max_items() : 100000,
 				'isPro'      => $this->is_pro(),
 				'addText'    => __( 'Add Item', 'accordions-wp' ),
 				'removeText' => __( 'Remove', 'accordions-wp' ),

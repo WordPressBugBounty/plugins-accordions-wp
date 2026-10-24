@@ -5,7 +5,7 @@
  * Description: Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
  * Requires at least: 4.8.0
  * Requires PHP: 7.4
- * Version:     4.0.0
+ * Version:     4.0.1
  * Author:      Themepoints
  * Author URI:  https://themepoints.com
  * Text Domain: accordions-wp
@@ -89,7 +89,7 @@ final class TCAccordion {
 	 *
 	 * @var string
 	 */
-	const VERSION = '4.0.0';
+	const VERSION = '4.0.1';
 
 	/**
 	 * Option key for storing the installation timestamp.
@@ -245,21 +245,12 @@ final class TCAccordion {
 			array(),
 			TCACCORDION_VERSION
 		);
-
-		// wp_register_style(
-		// 	'tcaccordion-style',
-		// 	TCACCORDION_PLUGIN_URL . 'assets/css/style.css',
-		// 	array(),
-		// 	TCACCORDION_VERSION
-		// );
-
 		wp_enqueue_style(
 	        'font-awesome-6',
 	        TCACCORDION_PLUGIN_URL . 'assets/css/all.min.css',
 	        array(),
 	        '6.5.1'
 	    );
-
 		wp_register_script(
 			'tcaccordion-script',
 			TCACCORDION_PLUGIN_URL . 'assets/js/responsive-accordion.min.js',

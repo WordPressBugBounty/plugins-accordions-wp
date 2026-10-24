@@ -4,7 +4,7 @@ Donate link: https://themepoints.com/accordion/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode
 Requires at least: 4.8.0
 Tested up to: 7.1
-Stable tag: 4.0.0
+Stable tag: 4.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,10 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 
 == Changelog ==
+
+= 4.0.1 =
+* Fix: Confirmation before removing an item in the editor.
+* Fix: Update CSS and JavaScript with a fixed version number.
 
 = 4.0.0 =
 * New: Live search box above the accordion. It filters items by title and content as you type, with a custom placeholder and a "no results" message.
