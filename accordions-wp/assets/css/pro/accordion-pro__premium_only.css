@@ -1,0 +1,72 @@
+/* Accordion-WP Pro: item icons and badges, group filter buttons.
+   The "__premium_only" part of the file name makes Freemius remove this file from the free version. */
+
+/* ---- Item icon and badge ---- */
+.tc-accordion-wrapper .tc-acc-item-icon {
+    display: inline-block;
+    margin-right: 0.55em;
+}
+
+.tc-accordion-wrapper .tc-acc-badge {
+    display: inline-block;
+    margin-left: 0.7em;
+    padding: 0.1em 0.65em;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.68em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.tc-accordion-wrapper .tc-acc-badge--blue   { background: #2563eb; }
+.tc-accordion-wrapper .tc-acc-badge--green  { background: #16a34a; }
+.tc-accordion-wrapper .tc-acc-badge--orange { background: #ea580c; }
+.tc-accordion-wrapper .tc-acc-badge--red    { background: #dc2626; }
+.tc-accordion-wrapper .tc-acc-badge--purple { background: #7c3aed; }
+.tc-accordion-wrapper .tc-acc-badge--gray   { background: #64748b; }
+
+/* ---- Group filter buttons ---- */
+.tc-accordion-wrapper .tc-acc-groups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 14px;
+}
+
+.tc-accordion-wrapper .tc-acc-group-btn {
+    padding: 7px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.2;
+    cursor: pointer;
+}
+.tc-accordion-wrapper .tc-acc-group-btn:hover,
+.tc-accordion-wrapper .tc-acc-group-btn:focus {
+    background: #f1f5f9;
+}
+.tc-accordion-wrapper .tc-acc-group-btn:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 1px;
+}
+.tc-accordion-wrapper .tc-acc-group-btn.is-active {
+    border-color: #1d4ed8;
+    background: #1d4ed8;
+    color: #ffffff;
+}
+
+.tc-accordion-wrapper.theme-dark .tc-acc-group-btn {
+    border-color: #3f3f46;
+    background: #252526;
+    color: #f3f4f6;
+}
+.tc-accordion-wrapper.theme-dark .tc-acc-group-btn.is-active {
+    border-color: #3b82f6;
+    background: #3b82f6;
+    color: #ffffff;
+}

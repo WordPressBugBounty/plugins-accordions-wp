@@ -4,7 +4,7 @@ Donate link: https://themepoints.com/accordion/
 Tags:  accordion, accordions, responsive accordions, jQuery accordions, accordions shortcode
 Requires at least: 4.8.0
 Tested up to: 7.1
-Stable tag: 3.0.9
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,8 +24,16 @@ Create beautiful, responsive accordions and FAQ sections with multiple styles, s
 * Fully responsive.
 * All Browser support.
 * Unlimited Accordions anywhere in the theme.
+* Unlimited items inside every accordion.
+* Live search box, Expand/Collapse all buttons and shareable deep links.
+* Two-column FAQ layout.
+* Auto-open item, close other items and closeable options.
+* Hover and open (active) colors for titles and icons.
+* One-click "Duplicate" for items and for whole accordions.
+* Gutenberg block with sidebar settings and per-page overrides (layout, search, expand/collapse all, deep links), plus shortcode attributes for the same.
+* CSV import and export of accordion items (great for moving FAQs from other plugins or editing them in Excel / Google Sheets).
 * Use via short-code.
-* 5 Different Themes.
+* 8 different themes.
 * Drag & Drop Accordion sorting.
 * WP Editor for accordion content.
 * Custom Title background color.
@@ -43,72 +51,17 @@ Create beautiful, responsive accordions and FAQ sections with multiple styles, s
 
 <strong>Pro Version Features</strong>
 
-* All Features of the free version.
-* Fully responsive.
-* 8+ different Themes.
-* Widget Ready.
-* Unlimited Domain.
-* Support wysiwyg text editor.
-* Create accordions by group.
-* Cross-browser compatibility.
-* Drag & Drop accordion items sorting.
-* Add and remove accordion item from backend.
-* Use via short-codes.
-* Accordion header title font size.
-* Accordion header title font color.
-* Accordion header title text position.
-* Accordion header title background color.
-* Show/Hide Accordions expand/collapse icons options.
-* Accordion header closeAble true or false Options.
-* Expand/collapse Slide speed of Animation Options.
-* Accordion content font size.
-* Accordion content font color.
-* Accordion content background.
-* Custom Accordion Padding Options.
-* Accordion area background image Options.
-* Accordions Area Padding Options.
-* Support Any videos (Ex: youtube, vimeo )
-* Valid HTML5 & CSS3 layout.
-* Highly customized for User Experience.
-* Clean Design & Code.
-* Unlimited accordion anywhere in the themes or template.
-* Work in all browsers and mobile devices.
-* Life Time Self hosted auto updated enable.
-* 24/7 dedicated support forum.
-* Well Documentation.
-* And much more!
-
-
-<strong>Activation</strong>
-
-Once the accordion-wp folder has been uploaded, you can activate the plugin. Go to your WordPress admin panel and select the ‘Plugins’ menu option. You should see a new plugin listed, Accordion-Wp. Click Activate to activate the plugin.
-
-
-<strong>Using the Plugin</strong>
-
-Once the plugin has been activated, a new menu called Accordion will appear in menu section. There are Three menu options: ‘Accordion’, ‘Add New Accordion’ & ‘Help & Support’.
-
-
-<strong>Creating First Accordion</strong>
-
-Click the Accordion submenu entry entitled ‘Add New Accordion’. This will take you to the accordion creation and editing page, Then click Add New Item to add accordion.
-
-Begin by entering a title & description for your accordion. Description Content can be entered using the Visual or HTML content editors. Any valid HTML content (e.g. images, video etc.) can be displayed inside accordion.
-
-To add a new accordion, Just click the ‘Add New Item’ button & fill all the data .
-
-To remove a Accordion, click the ‘Remove’ button located top right side of the accordion title or visual editor.
-
-
-<strong>Inserting Accordion into a Post/page or Widget</strong>
-
-After Publish your accordion, you’ll see a notification that the accordion has been Published, then go to ‘Accordion Configure ’ change your own settings & Shortcode tab copy the shortcode & paste into any where into your post/page or text widgets. save your post/page or widgets and browse to see your accordion.
-
-
-<strong> Note :</strong>
-
-Some features is not available in free version . [Upgrade Premium!&raquo;](https://themepoints.com/accordion/)  to unlock all amazing features.
- 
+* All features of the free version.
+* Tabs layout (tabs on desktop, normal accordion on mobile).
+* Horizontal accordion layout with adjustable height.
+* Nested accordions: show another accordion inside any item.
+* Groups / category filter tabs above the accordion.
+* Dynamic content: build items from posts, custom post types or an ACF repeater.
+* Analytics: Google Analytics events and a "most opened items" counter.
+* Per-item icons and badges (New, Popular, Hot...).
+* WooCommerce category rules: show or hide an accordion by product category.
+* Open items on mouse hover.
+* Animation speed control.
 
 == Installation ==
 <strong>Using The WordPress Dashboard</strong>
@@ -151,6 +104,40 @@ When accordions options setup done please copy & paste shortcode into your theme
 
 
 == Changelog ==
+
+= 4.0.0 =
+* New: Live search box above the accordion. It filters items by title and content as you type, with a custom placeholder and a "no results" message.
+* New: "Expand all" and "Collapse all" buttons.
+* New: Deep links. Every item gets a shareable link from its title (for example /faq/#return-policy). Opening the link opens and scrolls to the item. Works with non-Latin titles.
+* New: Two-column FAQ layout, chosen from a new picture picker right below Accordion Themes.
+* New: Hover and Open (active) colors for the title background, title text and icon in the Design tab. Hover colors work with a mouse and with keyboard focus.
+* New: CSV import and export of items. Import can add to or replace the current items and accepts title / description, question / answer or post_title / post_content columns, separated by commas, semicolons or tabs. Export includes unsaved edits and opens correctly in Excel.
+* New: Duplicate button on every item, and a Duplicate action on the Accordions list that copies a whole accordion into a new draft.
+* New: Gutenberg "TCP Accordion (Reusable)" block with sidebar controls: accordion picker, "Edit this accordion" and "Create a new accordion" links, and a "Display for this page only" panel for layout, search, expand/collapse all, deep links and open item.
+* New: Gutenberg "TCP Accordion (Inline)" block now has the full accordion settings in its sidebar: theme, layout, open item, close others, search, expand/collapse all, deep links, FAQ schema, icons, title / hover / open colors, content typography, spacing and border.
+* New: FAQPage JSON-LD schema generator for search engine rich results (off by default).
+* New: Border settings (style, width and color) in one compact row.
+* New: Confirmation before removing an item in the editor.
+* New (Pro): Tabs layout, which turns into a normal accordion on screens under 768px.
+* New (Pro): Horizontal accordion layout with adjustable height.
+* New (Pro): Nested accordions. Show another accordion inside any item.
+* New (Pro): Groups / category filter tabs above the accordion.
+* New (Pro): Dynamic content. Build items from posts, custom post types or an ACF repeater field.
+* New (Pro): Analytics. Send Google Analytics events and see which items are opened most.
+* New (Pro): Per-item icons and badges such as "New" or "Popular".
+* New (Pro): WooCommerce category rules. Show or hide an accordion by product category.
+* New (Pro): Open items on mouse hover and control the animation speed.
+* Changed: The 5-item limit is gone. Every accordion can have unlimited items.
+* Changed: Close other items, Closeable and Auto-open item are now free, and all 8 themes are free.
+* Changed: Pro features now ship in separate Pro-only files. The free version no longer contains locked or disabled premium code, and shows previews of Pro features with an upgrade link instead.
+* Improved: WooCommerce product-specific accordion assignment from the product edit screen, and WooCommerce hooks reworked to support custom product tabs and display locations without duplicates.
+* Improved: Content rendering now supports YouTube, Vimeo and other iframe embeds (allowfullscreen, loading, referrerpolicy and similar attributes).
+* Improved: Query fallbacks and asset loading on single product pages.
+* Improved: Screen reader state (aria-expanded) stays correct when items are opened by hover, Expand/Collapse all or a deep link.
+* Improved: The icon style setting now shows correctly in the accordion editor's Live Preview.
+* Fixed: The Inline Gutenberg block now loads its CSS and JavaScript on the live site, and older Inline blocks keep working.
+* Fixed: Item fields are renumbered correctly after sorting or removing items, so settings no longer end up on the wrong item.
+* Developers: New hooks for extensions, including tcaccordion_layouts, tcaccordion_items, tcaccordion_item_title_html, tcaccordion_before_list and tcaccordion_save_settings, and a tcaccordion_max_items filter to set an item limit in code.
 
 = 3.0.9 =
 * Fix: Added full WCAG 2.1 AA accessibility compliance across all accordion layouts.

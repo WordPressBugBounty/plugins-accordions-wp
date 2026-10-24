@@ -37,6 +37,30 @@
     cursor: pointer;
     color: #646970;
 }
+.tcaccordion-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 6px;
+}
+.tcaccordion-header .tcaccordion-header-actions .button-link,
+.tcaccordion-header .tcaccordion-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #646970;
+}
+.tcaccordion-header .tcaccordion-header-actions .button-link:hover,
+.tcaccordion-header .tcaccordion-header-actions .button-link:focus,
+.tcaccordion-header .tcaccordion-toggle:hover,
+.tcaccordion-header .tcaccordion-toggle:focus {
+    background: #e9eaeb;
+    color: #2271b1;
+}
 .tcaccordion-item.is-open .tcaccordion-toggle .dashicons {
     transform: rotate(180deg);
 }
@@ -61,13 +85,29 @@
 .tcaccordion-actions {
     margin-top: 15px;
 }
-.tcaccordion-remove {
-    color: #b32d2e !important;
-    border-color: #b32d2e !important;
+.tcaccordion-csv-tools {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    background: #f6f7f7;
 }
-.tcaccordion-remove:hover {
-    background: #b32d2e !important;
-    color: #fff !important;
+.tcaccordion-csv-tools .button,
+.tcaccordion-csv-tools select {
+    margin: 0 6px 6px 0;
+}
+.tcaccordion-csv-tools .button-link {
+    margin-left: 6px;
+}
+.tcaccordion-csv-notice {
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.tcaccordion-header .tcaccordion-header-actions .tcaccordion-remove:hover,
+.tcaccordion-header .tcaccordion-header-actions .tcaccordion-remove:focus {
+    background: #fcf0f1;
+    color: #b32d2e;
 }
 /* Metabox Tabs Layout */
 .tc-tabs-container {
@@ -259,4 +299,196 @@
     right: 6px;
     z-index: 2;
     pointer-events: none;
+}
+
+/* ---------------------------------------------------------------
+   Layout picker (same cards as the theme picker)
+--------------------------------------------------------------- */
+.tc-layout-picker .tc-theme-option {
+    position: relative;
+}
+/* Keep the radio focusable for keyboard users, but invisible */
+.tc-layout-picker .tc-theme-option input[type="radio"] {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+}
+.tc-layout-picker .tc-theme-option input[type="radio"]:focus-visible + .tc-theme-card {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+.tc-layout-picker .tc-theme-card img {
+    width: 120px;
+}
+
+/* ---------------------------------------------------------------
+   Upgrade previews (free version)
+--------------------------------------------------------------- */
+.tcacc-pro-teaser {
+    position: relative;
+    margin: 18px 0 8px;
+    overflow: hidden;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    background: #f6f7f7;
+}
+.tcacc-pro-teaser__preview {
+    padding: 18px 22px;
+    max-height: 430px;
+    overflow: hidden;
+    opacity: 0.75;
+    filter: blur(1.6px);
+    pointer-events: none;
+    user-select: none;
+}
+.tcacc-pro-teaser__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(246, 247, 247, 0.55);
+}
+.tcacc-pro-teaser__card {
+    position: relative;
+    max-width: 560px;
+    padding: 24px 28px 26px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 10px 34px rgba(15, 23, 42, 0.18);
+    text-align: center;
+}
+.tcacc-pro-teaser__card h3 {
+    margin: 4px 0 14px;
+    font-size: 19px;
+}
+.tcacc-pro-teaser__badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    background: #2271b1;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+.tcacc-pro-teaser__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+.tcacc-pro-teaser__list li {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: #50575e;
+}
+.tcacc-pro-teaser__list .dashicons {
+    flex: 0 0 auto;
+    color: #2271b1;
+}
+.tcacc-pro-teaser__list strong {
+    color: #1d2327;
+}
+@media (max-width: 782px) {
+    .tcacc-pro-teaser__list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* The pretend settings behind the message */
+.tcacc-mock-section {
+    margin: 0 0 18px;
+}
+.tcacc-mock-section > strong {
+    display: block;
+    margin: 0 0 8px;
+    font-size: 14px;
+}
+.tcacc-mock-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 8px;
+}
+.tcacc-mock-label {
+    min-width: 170px;
+    font-size: 13px;
+    color: #3c434a;
+}
+.tcacc-mock-control {
+    min-width: 190px;
+    padding: 5px 10px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    background: #ffffff;
+    font-size: 13px;
+    color: #2c3338;
+}
+.tcacc-mock-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tcacc-mock-pills span {
+    padding: 5px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    background: #ffffff;
+    font-size: 12px;
+}
+.tcacc-mock-pills span.is-active {
+    border-color: #1d4ed8;
+    background: #1d4ed8;
+    color: #ffffff;
+}
+.tcacc-mock-bars span {
+    display: block;
+    height: 12px;
+    margin: 0 0 7px;
+    border-radius: 6px;
+    background: #2271b1;
+}
+
+/* Small locked strip inside every item */
+.tcacc-pro-item-teaser {
+    display: block;
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    border: 1px dashed #c3c4c7;
+    border-radius: 6px;
+    background: #f6f7f7;
+}
+.tcacc-pro-item-teaser__fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 8px;
+    opacity: 0.6;
+}
+.tcacc-mock-field {
+    flex: 1 1 110px;
+    padding: 4px 9px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    background: #ffffff;
+    font-size: 12px;
+    color: #787c82;
+}
+.tcacc-pro-item-teaser__text {
+    font-size: 12.5px;
+    color: #50575e;
+}
+.tcacc-pro-item-teaser__text .tc-pro-badge {
+    margin-right: 4px;
 }

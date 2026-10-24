@@ -5,7 +5,7 @@
  * Description: Create beautiful, responsive accordions and FAQ sections with multiple styles, skins, and advanced customization—perfect for organizing content and improving UX.
  * Requires at least: 4.8.0
  * Requires PHP: 7.4
- * Version:     3.0.9
+ * Version:     4.0.0
  * Author:      Themepoints
  * Author URI:  https://themepoints.com
  * Text Domain: accordions-wp
@@ -66,6 +66,9 @@ if ( ! function_exists( 'tc_acc_fs' ) ) {
 /**
  * Global helper function to check if Pro license is active.
  *
+ * Use it only for labels and upgrade links. Pro features themselves live in files that
+ * Freemius removes from the free version (see the /pro folder).
+ *
  * @return bool
  */
 function tc_acc_is_pro() {
@@ -86,7 +89,7 @@ final class TCAccordion {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.0.9';
+	const VERSION = '4.0.0';
 
 	/**
 	 * Option key for storing the installation timestamp.
@@ -145,6 +148,12 @@ final class TCAccordion {
 		// Admin Metabox Manager
 		require_once TCACCORDION_PLUGIN_PATH . 'admin/class-accordion-metabox.php';
 
+		// Upgrade previews shown in the free version
+		require_once TCACCORDION_PLUGIN_PATH . 'admin/class-tcaccordion-admin-previews.php';
+
+		// Duplicate accordion (list screen row action)
+		require_once TCACCORDION_PLUGIN_PATH . 'admin/class-tcaccordion-duplicate.php';
+
 		// Admin Support Page
 		require_once TCACCORDION_PLUGIN_PATH . 'admin/class-tcaccordion-admin-support.php';
 
@@ -162,6 +171,17 @@ final class TCAccordion {
 		
 		// gutenberg Handler
 		require_once TCACCORDION_PLUGIN_PATH . 'inc/class-tcaccordion-gutenberg.php';
+		
+		if ( class_exists( 'WooCommerce' ) ) {
+			require_once TCACCORDION_PLUGIN_PATH . 'inc/class-tcaccordion-woocommerce.php';
+		}
+
+		// Pro features. This block and the files in /pro are removed from the free version by Freemius.
+		if ( tc_acc_fs()->is__premium_only() ) {
+			if ( tc_acc_fs()->can_use_premium_code() ) {
+				require_once TCACCORDION_PLUGIN_PATH . 'pro/class-tcaccordion-pro__premium_only.php';
+			}
+		}
 	}
 
 	/**
